@@ -19,3 +19,11 @@ stack install haskinst
 ```
 stack exec -- haskintex -overwrite %.htex|pdflatex -synctex=1 -interaction=nonstopmode %.tex|bibtex build/%.aux|pdflatex -synctex=1 -interaction=nonstopmode %.tex|xdg-open %.pdf
 ```
+
+# Configure Russian dictionaries
+
+Repo contains russian dictionaries for `Sublime Text` in `extra` folder:
+- `russian_english.aff` 
+- `russian_english.dic`
+
+You need to copy them to sublime packages dir (in root of the dir) and enable it via `View -> Dictionary -> russian_english` and then `F6`. Subsequent press of `F6` will disable spell checking.

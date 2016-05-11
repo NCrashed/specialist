@@ -44,8 +44,7 @@
 \clearpage
 \clearpage
 
-ываываыва \evalhaskell{2+3} df \cite{Johnson2005}
-
+тест \evalhaskell{2+3} df \cite{Johnson2005}
 
 \newpage
 \addcontentsline{toc}{chapter}{\bibname}

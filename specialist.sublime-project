@@ -4,5 +4,18 @@
 		{
 			"path": "."
 		}
-	]
+	],
+  "build_systems":
+  [
+    {
+      "name": "Haskell + LaTeX",
+      "working_dir": "${project_path}/src/build",
+      "shell_cmd": "stack exec -- haskintex -overwrite ../rpz.htex && pdflatex -synctex=1 -interaction=nonstopmode rpz.tex && xdg-open rpz.pdf"    
+    },
+    {
+      "name": "Bibtex",
+      "working_dir": "${project_path}/src",
+      "shell_cmd": "bibtex build/rpz.aux"
+    }
+  ]
 }

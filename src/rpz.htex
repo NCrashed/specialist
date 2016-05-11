@@ -1,0 +1,55 @@
+\documentclass[russian,utf8,emptystyle]{eskdtext}
+
+\newcommand{\No}{\textnumero} % костыль для фикса ошибки
+
+\ESKDdepartment{Федеральное государственное бюджетное образовательное учреждение высшего профессионального образования}
+\ESKDcompany{Московский государственный технический университет им. Н. Э. Баумана}
+\ESKDclassCode{23 0102}
+\ESKDtitle{АИС отслеживания и прогнозирования новостных потоков «Волхв»}
+\ESKDdocName{Расчетно-пояснительная записка}
+\ESKDauthor{Гуща~А.~В.}
+\ESKDtitleApprovedBy{~}{~\underline{\hspace{2.5cm}}}
+\ESKDtitleAgreedBy{~}{~\underline{\hspace{2.5cm}}}
+\ESKDtitleDesignedBy{Студент группы ИУ5-122}{Гуща~А.~В}
+
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tabularx,ragged2e}
+\usepackage{pdfpages}
+\renewcommand\tabularxcolumn[1]{>{\Centering}p{#1}}
+\newcommand\abs[1]{\left|#1\right|}
+
+\usepackage{longtable,tabu}
+
+\usepackage{geometry}
+\geometry{footskip = 1cm}
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+\usepackage{setspace}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+    extendedchars=\true,
+    basicstyle=\small,
+    inputencoding=utf8
+}
+
+
+\begin{document}
+\clearpage
+\clearpage
+
+ываываыва \evalhaskell{2+3} df \cite{Johnson2005}
+
+
+\newpage
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
+\bibliography{biblio}     %% имя библиографической базы (bib-файла) 
+
+\end{document}

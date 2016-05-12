@@ -1,0 +1,11 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+import Haskintex_stages
+import Haskintex_costs
+import Haskintex_workers
+\end{writehaskell}
+
+\subsection{Анализ структуры затрат проекта}

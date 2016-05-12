@@ -1,0 +1,84 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+import Haskintex_stages
+import Haskintex_costs
+\end{writehaskell}
+
+\subsection{Определение численности исполнителей}
+\begin{writehaskell}
+yearHolidayDays, yearTotalDays, yearWorkDays :: Int 
+yearHolidayDays = 119
+yearTotalDays = 366
+yearWorkDays = yearTotalDays - yearHolidayDays
+
+-- | время выполнения проекта в месяцах
+workDeadline :: Int 
+workDeadline = 1
+
+-- | Фонд работы и фонд доступных часов в месяц
+workFond, workFondMonth :: Int 
+workFondMonth = ceiling ( fromIntegral (workDay * yearWorkDays) / 12)
+workFond = workDeadline * workFondMonth
+
+-- | Среднее количество работников
+workersAvg :: Float
+workersAvg = fromIntegral expertsExpected / fromIntegral workFond
+
+-- | Округлённое количество работников
+workers :: Int
+workers = round workersAvg
+
+\end{writehaskell}
+
+Рассчитаем численность исполнителей, для этого воспользуемся формулой~\ref{equation:workers}:
+\begin{equation}
+\label{equation:workers}
+N = \frac{Q_{p}}{F}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $N$ -- численность исполнителей;
+\item       $Q_{p}$ -- затраты труда на выполнение проекта;
+\item       $F$ -- фонд рабочего времени, который определяется по формуле~\ref{equation:workFond}.
+\end{ESKDexplanation}
+
+
+\begin{equation}
+\label{equation:workFond}
+F = T \cdot F_\text{М} = T \cdot \frac{t_p \cdot (D_\text{К} - D_\text{В} - D_\text{П})}{12}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $t_p$ -- продолжительность рабочего дня;
+\item       $T$ -- время выполнения проекта в месяцах;
+\item       $F_{M}$ -- фонд рабочего времени в текущем месяце;
+\item       $D_\text{К}$ -- общее число дней в году;
+\item       $D_\text{В}$ -- число выходных дней в году;
+\item       $D_\text{П}$ -- число праздничных дней в году;
+\end{ESKDexplanation}
+
+В 2016 году общее число дней в году $D_\text{К} = \hatex{showr yearTotalDays}$, число выходных и праздничных дней в году $D_\text{В} + D_\text{П} = \hatex{showr yearHolidayDays}$. Соответственно, фонд рабочего времени в текущем месяце равен:
+\begin{equation}
+\label{equation:workFondMounth}
+F_{M} = \frac{t_p \cdot (D_\text{К} - D_\text{В} - D_\text{П})}{12} = \frac{\hatex{showr workDay} \cdot (\hatex{showr yearTotalDays} - \hatex{showr yearHolidayDays})}{12} = \hatex{showr workFondMonth} \, \text{часов}
+\end{equation}
+
+Фонд рабочего времени на проект равен:
+\begin{equation}
+\label{equation:workFond2}
+F = T \cdot F_{M} = \hatex{showr workDeadline} \cdot \hatex{showr workFondMonth} = \hatex{showr workFond} \, \text{часов}
+\end{equation}
+
+
+Затраты труда на выполнения проекта были рассчитаны в предыдущем разделе, их величина равна $Q_p = \hatex{showr expertsExpected} \, \text{часов}$. В соответствии с этим данными и формулой~\ref{equation:workers} получаем среднее количество исполнителей:
+\begin{equation}
+\label{equation:workers2}
+N_{avg} = \frac{Q_p}{F} = \frac{\hatex{showr expertsExpected}}{\hatex{showr workFond}} = \hatex{showf workersAvg} \; \text{исполнителей}
+\end{equation}
+
+Округлённое количество исполнителей:
+\begin{equation}
+\label{equation:workers2}
+N = \left [ N_{avg} \right ]  = \hatex{showr workers} \; \text{исполнителей}
+\end{equation}

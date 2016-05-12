@@ -1,4 +1,2 @@
-src/build
-src/rpz.tex
-.hdevtools.sock
+./build
 *.sublime-workspace 

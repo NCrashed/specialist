@@ -9,13 +9,13 @@
   [
     {
       "name": "Haskell + LaTeX",
-      "working_dir": "${project_path}/src/build",
-      "shell_cmd": "stack exec -- haskintex -overwrite -verbose -keep ../rpz.htex && pdflatex -synctex=1 -interaction=nonstopmode rpz.tex && xdg-open rpz.pdf"    
+      "working_dir": "${project_path}",
+      "shell_cmd": "./build.sh ${project_path}"    
     },
     {
       "name": "Bibtex",
-      "working_dir": "${project_path}/src",
-      "shell_cmd": "bibtex build/rpz.aux"
+      "working_dir": "${project_path}/build",
+      "shell_cmd": "bibtex rpz.aux"
     }
   ]
 }

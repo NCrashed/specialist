@@ -55,12 +55,16 @@
 import Text.LaTeX
 import Text.LaTeX.Base.Class
 import Data.Text (pack, Text)
+import Text.Printf
 
 showt :: Show a => a -> Text
 showt = pack . show 
 
 showr :: (Show a, LaTeXC l) => a -> l
 showr = raw . showt 
+
+showf :: LaTeXC l => Float -> l 
+showf = raw . pack . printf "%.2f"
 
 \end{writehaskell}
 
@@ -130,14 +134,115 @@ expertsTabular = tabular (Just Center) [CenterColumn, VerticalLine, CenterColumn
 
 Тогда ожидаемая продолжительность определяется по формуле~\ref{equation:expertsExpected}.
 \begin{writehaskell}
-expertsMin, expertsMax, expertsExpected :: Int
+-- | Длительность рабочего дня
+workDay :: Int
+workDay = 8
+
+-- | Минимальная, максимальная и ожидаемая оценка экспертов
+expertsMin, expertsMax, expertsExpected, expertsExpectedDays :: Int
 expertsMin = minimum experts
 expertsMax = maximum experts
 expertsExpected = round (fromIntegral (3 * expertsMin + 2 * expertsMax) / 5)
+expertsExpectedDays = ceiling (fromIntegral expertsExpected / fromIntegral workDay)
 \end{writehaskell}
 \begin{equation}
 \label{equation:expertsExpected}
 t_{\text{ож}} = \frac{3 T_{min} + 2 T_{max} }{5} = \frac{3 \cdot \hatex{showr expertsMin} + 2 \cdot \hatex{showr expertsMax} }{5} = \hatex{showr expertsExpected} \, \text{часов}
+\end{equation}
+
+Затраты труда на программирование выражаются формулой~\ref{equation:programmingTime}.
+\begin{writehaskell}
+designCostFactor, testCostFactor, fixCostFactor, docCostFactor, testDocCostFactor, totalCostFactor :: Float
+designCostFactor = 0.2
+testCostFactor = 0.15
+fixCostFactor = 0.15
+docCostFactor = 0.15
+testDocCostFactor = testCostFactor + fixCostFactor + docCostFactor
+totalCostFactor = designCostFactor + 1 + testDocCostFactor
+
+designTime, programmingTime, testDocTime, testTime, fixTime, docTime :: Int 
+programmingTime = round (fromIntegral expertsExpected / totalCostFactor)
+designTime = round (designCostFactor * fromIntegral programmingTime)
+testTime = round (testCostFactor * fromIntegral programmingTime)
+fixTime = round (fixCostFactor * fromIntegral programmingTime)
+docTime = round (docCostFactor * fromIntegral programmingTime)
+testDocTime = testTime + fixTime + docTime
+
+\end{writehaskell}
+\begin{equation}
+\label{equation:programmingTime}
+Q_{progr} = t_1 + t_2 + t_3
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $t_1$ -- время на проектирование системы;
+\item       $t_2$ -- время на написание программы;
+\item       $t_3$ -- время на проведение тестирования, исправлений и написание документации (определяется формулой~\ref{equation:testDocTime}).
+\end{ESKDexplanation}
+
+Коэффициент затрат на проектирование определим равным $n_1 = \hatex{showf designCostFactor}$. Тогда затраты на проектирование выражаются формулой~\ref{equation:designTime}.
+\begin{equation}
+\label{equation:designTime}
+t_1 = n_1 \cdot t_2 = \hatex{showf designCostFactor} \cdot t_2
+\end{equation}
+
+А затраты на проектирование выражаются формулой~\ref{equation:testDocTime}.
+\begin{equation}
+\label{equation:testDocTime}
+t_3 = n_i \cdot t_2 = (n_\text{т} + n_\text{и} + n_\text{д}) t_2 = (\hatex{showf testCostFactor} + \hatex{showf fixCostFactor} + \hatex{showf docCostFactor}) t_2 = \hatex{showf testDocCostFactor} \cdot t_2
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $n_i$ -- интегральные коэффициент затрат на тестирование, исправление и написание документации;
+\item       $n_\text{т}$ -- коэффициент затрат на тестирование программы;
+\item       $n_\text{и}$ -- коэффициент затрат на исправление программы;
+\item       $n_\text{д}$ -- коэффициент затрат на документирование программы.
+\end{ESKDexplanation}
+
+Используя формулы \ref{equation:designTime} и \ref{equation:testDocTime}:
+\begin{equation}
+\label{equation:programmingTime2}
+Q_{progr} = t_1 + t_2 + t_3 = (\hatex{showf designCostFactor} + 1 + \hatex{showf testDocCostFactor}) \cdot t_2 = \hatex{showf totalCostFactor} \cdot t_2
+\end{equation}
+
+Отсюда находим затраты труда на программирование:
+\begin{equation}
+\label{equation:programmingTime3}
+t_2 = \frac{Q_{progr}}{\hatex{showf totalCostFactor}} = \frac{\hatex{showr expertsExpected}}{\hatex{showf totalCostFactor}} = \hatex{showr programmingTime} \, \text{часов}
+\end{equation}
+
+Далее можно расчитать все затраты труда:
+\begin{equation}
+\label{equation:designTime2}
+t_1 = n_1 \cdot t_2 = \hatex{showf designCostFactor} \cdot t_2 = \hatex{showf designCostFactor} \cdot \hatex{showr programmingTime} = \hatex{showr designTime} \, \text{часов}
+\end{equation}
+
+Время тестирования расчитывается по следующей формуле:
+\begin{equation}
+\label{equation:testTime}
+t_\text{т} = n_\text{т} \cdot t_2 = \hatex{showf testCostFactor} \cdot t_2 = \hatex{showf testCostFactor} \cdot \hatex{showr programmingTime} = \hatex{showr testTime} \, \text{часов}
+\end{equation}
+
+Время исправления ошибок расчитывается по следующей формуле:
+\begin{equation}
+\label{equation:fixTime}
+t_\text{и} = n_\text{и} \cdot t_2 = \hatex{showf fixCostFactor} \cdot t_2 = \hatex{showf fixCostFactor} \cdot \hatex{showr programmingTime} = \hatex{showr fixTime} \, \text{часов}
+\end{equation}
+
+Время написания документации расчитывается по следующей формуле:
+\begin{equation}
+\label{equation:docTime}
+t_\text{д} = n_\text{д} \cdot t_2 = \hatex{showf docCostFactor} \cdot t_2 = \hatex{showf docCostFactor} \cdot \hatex{showr programmingTime} = \hatex{showr docTime} \, \text{часов}
+\end{equation}
+
+Суммарное время на тестирование, исправление ошибок и написание документации расчитывается по следующей формуле:
+\begin{equation}
+\label{equation:testDocTime3}
+t_3 = t_\text{т} + t_\text{и} + t_\text{д} = (\hatex{showr testTime} + \hatex{showr fixTime} + \hatex{showr docTime}) \cdot \hatex{showr programmingTime} = \hatex{showr testDocTime} \, \text{часов}
+\end{equation}
+
+Запишем итоговую оценку труда в часах и человеко-дней (примем \hatex{showr workDay} часов в одном рабочем дне):
+\begin{equation}
+\label{equation:programmingTime3}
+Q_{progr} = \hatex{showr expertsExpected} \, \text{часов} = \hatex{showr expertsExpectedDays} \, \text{человеко-дней}
 \end{equation}
 
 %===========================================================================

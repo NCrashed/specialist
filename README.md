@@ -11,7 +11,7 @@ To edit and/or build the docs you need either:
 Prerequisites installation:
 ```
 stack setup
-stack install haskinst
+stack install haskintex
 ```
 
 # Texmaker build string

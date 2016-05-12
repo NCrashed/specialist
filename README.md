@@ -2,7 +2,7 @@
 
 You need:
 - [stack](https://stackage.org)
-- LaTeX distribution (I use [TexLive](https://www.tug.org/texlive/) from Fedora 23 repo)
+- LaTeX distribution (I use [TexLive](https://www.tug.org/texlive/) from Fedora 23 repo). Windows users might prefer [MikTex](http://miktex.org/) as Windows texlive distribution requires 4GB of disk space.
 
 To edit and/or build the docs you need either:
 - [TexMaker](http://www.xm1math.net/texmaker/) - build string is given below.

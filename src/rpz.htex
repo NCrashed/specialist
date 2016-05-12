@@ -1,5 +1,7 @@
 \documentclass[russian,utf8,emptystyle]{eskdtext}
 
+\usepackage[T2A,T1]{fontenc}
+
 \newcommand{\No}{\textnumero} % костыль для фикса ошибки
 
 \ESKDdepartment{Федеральное государственное бюджетное образовательное учреждение высшего профессионального образования}
@@ -39,12 +41,18 @@
     inputencoding=utf8
 }
 
+\ESKDsectAlign{section}{Center}
 
 \begin{document}
 \clearpage
 \clearpage
 
-тест \evalhaskell{2+3} df \cite{Johnson2005}
+\section{Часть 1}
+\section{Часть 2}
+\section{Часть 3}
+
+\newpage
+\section{Организационно -- Экономическая часть}
 
 \newpage
 \addcontentsline{toc}{chapter}{\bibname}

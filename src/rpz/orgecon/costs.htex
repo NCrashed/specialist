@@ -89,7 +89,7 @@ t_1 = n_1 \cdot t_2 = \hatex{showf designCostFactor} \cdot t_2
 А затраты на проектирование выражаются формулой~\ref{equation:testDocTime}.
 \begin{equation}
 \label{equation:testDocTime}
-t_3 = n_i \cdot t_2 = (n_\text{т} + n_\text{и} + n_\text{д}) t_2 = (\hatex{showf testCostFactor} + \hatex{showf fixCostFactor} + \hatex{showf docCostFactor}) t_2 = \hatex{showf testDocCostFactor} \cdot t_2
+t_3 = n_i \cdot t_2 = (n_\text{т} + n_\text{и} + n_\text{д}) \cdot t_2 = (\hatex{showf testCostFactor} + \hatex{showf fixCostFactor} + \hatex{showf docCostFactor}) \cdot t_2 = \hatex{showf testDocCostFactor} \cdot t_2
 \end{equation}
 \begin{ESKDexplanation}
 \item[где ] $n_i$ -- интегральные коэффициент затрат на тестирование, исправление и написание документации;

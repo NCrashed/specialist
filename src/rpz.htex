@@ -63,7 +63,7 @@
 \include{orgecon/stages}
 \include{orgecon/costs}
 \include{orgecon/workers}
-\include{orgecon/costsStructure}
+\include{orgecon/salary}
 
 %===========================================================================
 \clearpage

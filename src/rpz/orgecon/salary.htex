@@ -19,6 +19,30 @@ programmerSalaryDay = workDay * programmerSalary
 programmerSalaryMonth :: Int
 programmerSalaryMonth = 50885
 
+-- | Запланированная зарплата программиста за все время
+programmerExpectedSalary :: Int
+programmerExpectedSalary = expertsExpectedDays * programmerSalaryDay
+
+-- | Часть от основной зп на дополнительную зп
+additionalSalaryFactor :: Float
+additionalSalaryFactor = 0.2
+
+-- | Часть от зп на отчисления
+taxSalaryFactor :: Float
+taxSalaryFactor = 0.3
+
+-- | Затраты на дополнительную зарплату
+additionalSalary :: Int
+additionalSalary = ceiling (fromIntegral programmerExpectedSalary * additionalSalaryFactor)
+
+-- | Затраты на отчисления с зарплаты
+taxSalary :: Int
+taxSalary = ceiling (fromIntegral programmerExpectedSalary * taxSalaryFactor)
+
+-- | Все затраты на зарплату
+costsSalary :: Int
+costsSalary = programmerExpectedSalary + additionalSalary + taxSalary
+
 \end{writehaskell}
 
 \subsection{Анализ структуры затрат проекта}
@@ -75,3 +99,41 @@ O_\text{ДН} = \frac{O_\text{МЕС} \cdot t_p}{F_M}
 \end{ESKDexplanation}
 
 По данным сайта~\cite{SalaryProgrammer} средний оклад специалистов требуемой квалификации следующий: оклад инженера-программиста -- \hatex{showr programmerSalaryMonth} руб/месяц или \hatex{showr programmerSalaryDay} руб/день или \hatex{showr programmerSalary} руб/час.
+
+Результаты расчета затрат на заработную плату исполнителей приведены в таблице~\ref{table:salary}.
+
+\begin{table}[h!]
+\centering
+\caption{Расчет зарплат}
+\label{table:salary}
+\begin{tabular}{L{5.5cm}|C{3cm}|C{3cm}|C{3cm}}
+\multicolumn{1}{c|}{Должность} & 
+\multicolumn{1}{C{3cm}|}{Дневной оклад, руб} & 
+\multicolumn{1}{C{3cm}|}{Трудозатраты, дн} & 
+\multicolumn{1}{C{3 cm}}{Затраты на заработную плату, руб} \\
+\hline\hline
+Инженер-программист & \hatex{showr programmerSalaryDay} & \hatex{showr expertsExpectedDays} & \hatex{showr programmerExpectedSalary} \\
+
+\end{tabular}
+\end{table}
+
+В итоге получим общие затраты проекта на основную заработную плату исполнителей: $C_\text{З.ОСН} = \hatex{showr programmerExpectedSalary} \, \text{руб}$. Расходы на дополнительную заработную плату составляет $\hatex{showf (additionalSalaryFactor * 100)} \%$. Соответственно:
+
+\begin{equation}
+\label{equation:additionalSalary}
+C_\text{З.ДОП} = \hatex{showf additionalSalaryFactor} \cdot \hatex{showr programmerExpectedSalary} = \hatex{showr additionalSalary} \, \text{руб}
+\end{equation}
+
+В 2016 году суммарные отчисления в пенсионный фонд, фонд социального страхования и фонды обязательного медицинского страхования составляют $\hatex{showf (taxSalaryFactor * 100)} \%$ от размеров заработной платы. Следовательно:
+
+\begin{equation}
+\label{equation:taxSalary}
+C_\text{З.ОТЧ} = \hatex{showf taxSalaryFactor} \cdot \hatex{showr programmerExpectedSalary} = \hatex{showr taxSalary} \, \text{руб}
+\end{equation}
+
+В итоге получаем, что общие расходы, связанные с заработной платой составляют:
+\begin{equation}
+\label{equation:costsSalary2}
+C_\text{ЗАРП} = C_\text{З.ОСН} + C_\text{З.ДОП} + C_\text{З.ОТЧ} = 
+  \hatex{showr programmerExpectedSalary} + \hatex{showr additionalSalary} + \hatex{showr taxSalary} = \hatex{showr costsSalary} \, \text{руб}
+\end{equation}

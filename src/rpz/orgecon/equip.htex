@@ -8,6 +8,42 @@ import Haskintex_costs
 import Haskintex_workers
 import Haskintex_salary
 
+-- | Количество месяцев амортизации
+ammortTime :: Int
+ammortTime = 25
+
+-- | Стоимость компьютера
+machineCost :: Int 
+machineCost = 60000
+
+-- | Затраты на оборудование
+equipCost :: Int
+equipCost = ceiling ((fromIntegral workDeadline / fromIntegral ammortTime) * fromIntegral machineCost)
 \end{writehaskell}
 
 \subsection{Затраты на обеспечение необходимым оборудованием}
+
+С целью рационализации затрат выберем использование имеющихся орудий труда. Срок амортизации ПЭВМ (класс 2) – от двух до трех лет. Примем срок амортизации \hatex{showr ammortTime} месяцев. Затраты на обеспечение необходимым оборудованием приведены в таблице~\ref{table:equip}.
+
+\begin{table}[h!]
+\centering
+\caption{Затраты на оборудование}
+\label{table:equip}
+\begin{tabular}{C{1cm}|C{3cm}|C{1cm}|C{1cm}|C{2cm}|C{3cm}|C{2cm}}
+\multicolumn{1}{C{1cm}|}{№} & 
+\multicolumn{1}{C{3cm}|}{Наименование} & 
+\multicolumn{1}{C{1cm}|}{Ед. измер.} & 
+\multicolumn{1}{C{1cm}|}{Кол-во} & 
+\multicolumn{1}{C{2cm}|}{Цена за ед.} & 
+\multicolumn{1}{C{3cm}|}{Срок использования} & 
+\multicolumn{1}{C{2cm} }{Сумма всего, руб.} \\
+\hline\hline
+1 & ПЭВМ на базе Intel Core i7 & шт & 1 & \hatex{showr machineCost} & \hatex{showr workDeadline} месяцев & \hatex{showr equipCost} \\
+\end{tabular}
+\end{table}
+
+Суммарные затраты на обеспечение оборудованием составляют:
+\begin{equation}
+\label{equation:equipCost}
+C_\text{ОБ} = \hatex{showr equipCost} \, \text{руб}
+\end{equation}

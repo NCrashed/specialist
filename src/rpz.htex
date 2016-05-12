@@ -150,7 +150,7 @@ expertsExpectedDays = ceiling (fromIntegral expertsExpected / fromIntegral workD
 t_{\text{ож}} = \frac{3 T_{min} + 2 T_{max} }{5} = \frac{3 \cdot \hatex{showr expertsMin} + 2 \cdot \hatex{showr expertsMax} }{5} = \hatex{showr expertsExpected} \, \text{часов}
 \end{equation}
 
-Затраты труда на программирование выражаются формулой~\ref{equation:programmingTime}.
+Затраты труда на проект выражаются формулой~\ref{equation:programmingTime}.
 \begin{writehaskell}
 designCostFactor, testCostFactor, fixCostFactor, docCostFactor, testDocCostFactor, totalCostFactor :: Float
 designCostFactor = 0.2
@@ -171,7 +171,7 @@ testDocTime = testTime + fixTime + docTime
 \end{writehaskell}
 \begin{equation}
 \label{equation:programmingTime}
-Q_{progr} = t_1 + t_2 + t_3
+Q_{p} = t_1 + t_2 + t_3 = t_{\text{ож}}
 \end{equation}
 \begin{ESKDexplanation}
 \item[где ] $t_1$ -- время на проектирование системы;
@@ -200,13 +200,13 @@ t_3 = n_i \cdot t_2 = (n_\text{т} + n_\text{и} + n_\text{д}) t_2 = (\hatex{sh
 Используя формулы \ref{equation:designTime} и \ref{equation:testDocTime}:
 \begin{equation}
 \label{equation:programmingTime2}
-Q_{progr} = t_1 + t_2 + t_3 = (\hatex{showf designCostFactor} + 1 + \hatex{showf testDocCostFactor}) \cdot t_2 = \hatex{showf totalCostFactor} \cdot t_2
+Q_{p} = t_1 + t_2 + t_3 = (\hatex{showf designCostFactor} + 1 + \hatex{showf testDocCostFactor}) \cdot t_2 = \hatex{showf totalCostFactor} \cdot t_2
 \end{equation}
 
 Отсюда находим затраты труда на программирование:
 \begin{equation}
 \label{equation:programmingTime3}
-t_2 = \frac{Q_{progr}}{\hatex{showf totalCostFactor}} = \frac{\hatex{showr expertsExpected}}{\hatex{showf totalCostFactor}} = \hatex{showr programmingTime} \, \text{часов}
+t_2 = \frac{Q_{p}}{\hatex{showf totalCostFactor}} = \frac{\hatex{showr expertsExpected}}{\hatex{showf totalCostFactor}} = \hatex{showr programmingTime} \, \text{часов}
 \end{equation}
 
 Далее можно расчитать все затраты труда:
@@ -239,10 +239,86 @@ t_\text{д} = n_\text{д} \cdot t_2 = \hatex{showf docCostFactor} \cdot t_2 = \h
 t_3 = t_\text{т} + t_\text{и} + t_\text{д} = (\hatex{showr testTime} + \hatex{showr fixTime} + \hatex{showr docTime}) \cdot \hatex{showr programmingTime} = \hatex{showr testDocTime} \, \text{часов}
 \end{equation}
 
-Запишем итоговую оценку труда в часах и человеко-дней (примем \hatex{showr workDay} часов в одном рабочем дне):
+Запишем итоговую оценку труда на выполнение проекта в часах и человеко-дней (примем \hatex{showr workDay} часов в одном рабочем дне):
 \begin{equation}
 \label{equation:programmingTime3}
-Q_{progr} = \hatex{showr expertsExpected} \, \text{часов} = \hatex{showr expertsExpectedDays} \, \text{человеко-дней}
+Q_{p} = \hatex{showr expertsExpected} \, \text{часов} = \hatex{showr expertsExpectedDays} \, \text{человеко-дней}
+\end{equation}
+
+\subsection{Определение численности исполнителей}
+\begin{writehaskell}
+yearHolidayDays, yearTotalDays, yearWorkDays :: Int 
+yearHolidayDays = 119
+yearTotalDays = 366
+yearWorkDays = yearTotalDays - yearHolidayDays
+
+-- | время выполнения проекта в месяцах
+workDeadline :: Int 
+workDeadline = 1
+
+-- | Фонд работы и фонд доступных часов в месяц
+workFond, workFondMonth :: Int 
+workFondMonth = ceiling ( fromIntegral (workDay * yearWorkDays) / 12)
+workFond = workDeadline * workFondMonth
+
+-- | Среднее количество работников
+workersAvg :: Float
+workersAvg = fromIntegral expertsExpected / fromIntegral workFond
+
+-- | Округлённое количество работников
+workers :: Int
+workers = round workersAvg
+
+\end{writehaskell}
+
+Рассчитаем численность исполнителей, для этого воспользуемся формулой~\ref{equation:workers}:
+\begin{equation}
+\label{equation:workers}
+N = \frac{Q_{p}}{F}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $N$ -- численность исполнителей;
+\item       $Q_{p}$ -- затраты труда на выполнение проекта;
+\item       $F$ -- фонд рабочего времени, который определяется по формуле~\ref{equation:workFond}.
+\end{ESKDexplanation}
+
+
+\begin{equation}
+\label{equation:workFond}
+F = T \cdot F_\text{М} = T \cdot \frac{t_p \cdot (D_\text{К} - D_\text{В} - D_\text{П})}{12}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $t_p$ -- продолжительность рабочего дня;
+\item       $T$ -- время выполнения проекта в месяцах;
+\item       $F_{M}$ -- фонд рабочего времени в текущем месяце;
+\item       $D_\text{К}$ -- общее число дней в году;
+\item       $D_\text{В}$ -- число выходных дней в году;
+\item       $D_\text{П}$ -- число праздничных дней в году;
+\end{ESKDexplanation}
+
+В 2016 году общее число дней в году $D_\text{К} = \hatex{showr yearTotalDays}$, число выходных и праздничных дней в году $D_\text{В} + D_\text{П} = \hatex{showr yearHolidayDays}$. Соответственно, фонд рабочего времени в текущем месяце равен:
+\begin{equation}
+\label{equation:workFondMounth}
+F_{M} = \frac{t_p \cdot (D_\text{К} - D_\text{В} - D_\text{П})}{12} = \frac{\hatex{showr workDay} \cdot (\hatex{showr yearTotalDays} - \hatex{showr yearHolidayDays})}{12} = \hatex{showr workFondMonth} \, \text{часов}
+\end{equation}
+
+Фонд рабочего времени на проект равен:
+\begin{equation}
+\label{equation:workFond2}
+F = T \cdot F_{M} = \hatex{showr workDeadline} \cdot \hatex{showr workFondMonth} = \hatex{showr workFond} \, \text{часов}
+\end{equation}
+
+
+Затраты труда на выполнения проекта были рассчитаны в предыдущем разделе, их величина равна $Q_p = \hatex{showr expertsExpected} \, \text{часов}$. В соответствии с этим данными и формулой~\ref{equation:workers} получаем среднее количество исполнителей:
+\begin{equation}
+\label{equation:workers2}
+N_{avg} = \frac{Q_p}{F} = \frac{\hatex{showr expertsExpected}}{\hatex{showr workFond}} = \hatex{showf workersAvg} \; \text{исполнителей}
+\end{equation}
+
+Округлённое количество исполнителей:
+\begin{equation}
+\label{equation:workers2}
+N = \left [ N_{avg} \right ]  = \hatex{showr workers} \; \text{исполнителей}
 \end{equation}
 
 %===========================================================================

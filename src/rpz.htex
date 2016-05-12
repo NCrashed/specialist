@@ -64,6 +64,7 @@
 \include{orgecon/costs}
 \include{orgecon/workers}
 \include{orgecon/salary}
+\include{orgecon/equip}
 
 %===========================================================================
 \clearpage

@@ -1,0 +1,13 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+import Haskintex_stages
+import Haskintex_costs
+import Haskintex_workers
+import Haskintex_salary
+
+\end{writehaskell}
+
+\subsection{Затраты на обеспечение необходимым оборудованием}

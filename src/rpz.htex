@@ -48,6 +48,21 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Text.LaTeX
+import Text.LaTeX.Base.Class
+import Data.Text (pack, Text)
+
+showt :: Show a => a -> Text
+showt = pack . show 
+
+showr :: (Show a, LaTeXC l) => a -> l
+showr = raw . showt 
+
+\end{writehaskell}
 
 %===========================================================================
 \begin{document}
@@ -86,8 +101,35 @@
 \end{tabular}
 \end{table}
 
+\subsection{Расчет трудоемкости проекта}
+
+Определим вероятные трудозатраты на выполнение данного проекта. Определим их с помощью экспертных оценок. Результат экспертных оценок представлен в таблице~\ref{table:org_experts}.
+
+\begin{writehaskell}
+-- | Массив оценок экспертов
+experts :: [Int]
+experts = [201, 141, 193, 180]
+
+-- | Табличка с эксперт-часы
+expertsTabular :: LaTeX
+expertsTabular = tabular (Just Center) [CenterColumn, VerticalLine, CenterColumn] (
+    let pairs = [1..] `zip` experts 
+        isLast i = i == length pairs
+        mkrow (i, a) = (showr i & showr a) <> lnbk <> (if isLast i then mempty else hline)
+    in ("Эксперт" & "Количество часов") <> lnbk <> hline
+       <> mconcat (mkrow `fmap` pairs)
+  )
+\end{writehaskell}
+
+\begin{table}[h!]
+\centering
+\caption{Результат экспертных оценок}
+\label{table:org_experts}
+\hatex{expertsTabular}
+\end{table}
+
 %===========================================================================
-\newpage
+\clearpage
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio}     %% имя библиографической базы (bib-файла) 

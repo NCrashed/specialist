@@ -65,6 +65,7 @@
 \include{orgecon/workers}
 \include{orgecon/salary}
 \include{orgecon/equip}
+\include{orgecon/workplace}
 
 %===========================================================================
 \clearpage

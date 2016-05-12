@@ -6,6 +6,7 @@ $1/compile.sh $1/src/rpz/orgecon/costs
 $1/compile.sh $1/src/rpz/orgecon/stages
 $1/compile.sh $1/src/rpz/orgecon/workers
 $1/compile.sh $1/src/rpz/orgecon/equip
+$1/compile.sh $1/src/rpz/orgecon/workplace
 cd $1/build
 $1/compile.sh $1/src/rpz
 

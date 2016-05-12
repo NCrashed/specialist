@@ -10,7 +10,7 @@
     {
       "name": "Haskell + LaTeX",
       "working_dir": "${project_path}/src/build",
-      "shell_cmd": "stack exec -- haskintex -overwrite ../rpz.htex && pdflatex -synctex=1 -interaction=nonstopmode rpz.tex && xdg-open rpz.pdf"    
+      "shell_cmd": "stack exec -- haskintex -overwrite -verbose -keep ../rpz.htex && pdflatex -synctex=1 -interaction=nonstopmode rpz.tex && xdg-open rpz.pdf"    
     },
     {
       "name": "Bibtex",

@@ -11,4 +11,5 @@ $1/compile.sh $1/src/rpz
 cp $1/src/utf8gost705u.bst $1/build
 cp $1/src/biblio.bib $1/build
 
-pdflatex -synctex=1 -interaction=nonstopmode rpz.tex && xdg-open rpz.pdf
+pdflatex -synctex=1 -interaction=nonstopmode rpz.tex
+xdg-open rpz.pdf

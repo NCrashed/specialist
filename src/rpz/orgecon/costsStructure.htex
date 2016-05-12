@@ -6,6 +6,72 @@ import Common
 import Haskintex_stages
 import Haskintex_costs
 import Haskintex_workers
+
+-- | Зарплата программиста в час
+programmerSalary :: Int
+programmerSalary = round (fromIntegral programmerSalaryMonth / fromIntegral workFondMonth)
+
+-- | Зарплата программиста в день
+programmerSalaryDay :: Int 
+programmerSalaryDay = workDay * programmerSalary
+
+-- | Зарплата программиста в месяц
+programmerSalaryMonth :: Int
+programmerSalaryMonth = 50885
+
 \end{writehaskell}
 
 \subsection{Анализ структуры затрат проекта}
+
+Затраты на выполнение проекта состоят из затрат на заработную плату исполнителям, затрат на закупку или аренду оборудования, затрат на организацию рабочих мест, и затрат на накладные расходы. Вычислить затраты на выполнение проекта можно по формуле~\ref{equation:costs}.
+
+\begin{equation}
+\label{equation:costs}
+K = C_\text{ЗАРП} + C_\text{ОБ} + C_\text{ОРГ} + C_\text{НАКЛ}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $K$ -- затраты на выполнение проекта;
+\item       $C_\text{ЗАРП}$ -- заработная плата исполнителей;
+\item       $C_\text{ОБ}$ -- затраты на обеспечение необходимым оборудованием;
+\item       $C_\text{ОРГ}$ -- затраты на организацию рабочих мест;
+\item       $C_\text{НАКЛ}$ -- накладные расходы.
+\end{ESKDexplanation}
+
+
+\subsubsection{Затраты на выплату заработной платы}
+
+Затраты на выплату исполнителям определяется соотношением~\ref{equation:costsSalary}.
+
+\begin{equation}
+\label{equation:costsSalary}
+C_\text{ЗАРП} = C_\text{З.ОСН} + C_\text{З.ДОП} + C_\text{З.ОТЧ}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $C_\text{ЗАРП}$ -- заработная плата исполнителей;
+\item       $C_\text{З.ОСН}$ -- основная заработная плата;
+\item       $C_\text{З.ДОП}$ -- дополнительная заработная плата;
+\item       $C_\text{З.ОТЧ}$ -- отчисление с заработной платы.
+\end{ESKDexplanation}
+
+\begin{equation}
+\label{equation:baseSalary}
+C_\text{З.ОСН} = T_\text{ЗАН} \cdot O_\text{ДН}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $C_\text{З.ОСН}$ -- основная заработная плата;
+\item       $T_\text{ЗАН}$ -- число дней, отработанных исполнителем проекта;
+\item       $O_\text{ДН}$ -- дневной оклад исполнителя, который расчитывается по формуле~\ref{equation:salaryDay}.
+\end{ESKDexplanation}
+
+\begin{equation}
+\label{equation:salaryDay}
+O_\text{ДН} = \frac{O_\text{МЕС} \cdot t_p}{F_M}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $O_\text{ДН}$ -- дневной оклад исполнителя;
+\item       $O_\text{МЕС}$ -- месячный оклад исполнителя;
+\item       $t_p$ -- продолжительность рабочего дня в часах;
+\item       $F_M$ -- месячный фонд рабочего времени.
+\end{ESKDexplanation}
+
+По данным сайта~\cite{SalaryProgrammer} средний оклад специалистов требуемой квалификации следующий: оклад инженера-программиста -- \hatex{showr programmerSalaryMonth} руб/месяц или \hatex{showr programmerSalaryDay} руб/день или \hatex{showr programmerSalary} руб/час.

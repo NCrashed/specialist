@@ -79,6 +79,6 @@ N_{avg} = \frac{Q_p}{F} = \frac{\hatex{showr expertsExpected}}{\hatex{showr work
 
 Округлённое количество исполнителей:
 \begin{equation}
-\label{equation:workers2}
+\label{equation:workers3}
 N = \left [ N_{avg} \right ]  = \hatex{showr workers} \; \text{исполнителей}
 \end{equation}

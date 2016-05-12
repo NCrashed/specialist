@@ -142,6 +142,6 @@ t_3 = t_\text{т} + t_\text{и} + t_\text{д} = (\hatex{showr testTime} + \hatex
 
 Запишем итоговую оценку труда на выполнение проекта в часах и человеко-дней (примем \hatex{showr workDay} часов в одном рабочем дне):
 \begin{equation}
-\label{equation:programmingTime3}
+\label{equation:programmingTime4}
 Q_{p} = \hatex{showr expertsExpected} \, \text{часов} = \hatex{showr expertsExpectedDays} \, \text{человеко-дней}
 \end{equation}

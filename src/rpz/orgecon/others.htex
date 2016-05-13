@@ -1,0 +1,20 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+import Haskintex_stages
+import Haskintex_costs
+import Haskintex_workers
+import Haskintex_salary
+import Haskintex_equip
+import Haskintex_workplace
+import Haskintex_overheads
+
+\end{writehaskell}
+
+\subsection{Плановые отчисления}
+\subsection{Стоимость программного продукта}
+\subsection{Определение затрат на внедрение системы}
+\subsection{Расчет срока окупаемости}
+\subsection{Выводы}

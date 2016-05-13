@@ -67,6 +67,7 @@
 \include{orgecon/equip}
 \include{orgecon/workplace}
 \include{orgecon/overheads}
+\include{orgecon/others}
 
 %===========================================================================
 \clearpage

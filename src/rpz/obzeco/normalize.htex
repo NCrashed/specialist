@@ -1,0 +1,8 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+\end{writehaskell}
+
+\subsection{Нормирование вредных и опасных факторов при работе с компьютером}

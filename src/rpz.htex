@@ -75,6 +75,9 @@
 %===========================================================================
 % ОБЖ и Экология
 \include{obzeco/analysis}
+\include{obzeco/normalize}
+\include{obzeco/expertise}
+\include{obzeco/results}
 
 %===========================================================================
 \clearpage

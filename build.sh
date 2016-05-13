@@ -10,6 +10,12 @@ $1/compile.sh $1/src/rpz/orgecon/equip
 $1/compile.sh $1/src/rpz/orgecon/workplace
 $1/compile.sh $1/src/rpz/orgecon/overheads
 $1/compile.sh $1/src/rpz/orgecon/others
+
+mkdir -p $1/build/obzeco && cd $1/build/obzeco
+cp $1/build/orgecon/Haskintex_workplace $1/build/obzeco
+cp $1/build/orgecon/Haskintex_costs $1/build/obzeco
+$1/compile.sh $1/src/rpz/obzeco/analysis
+
 cd $1/build
 $1/compile.sh $1/src/rpz
 

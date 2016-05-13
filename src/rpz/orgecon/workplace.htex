@@ -11,15 +11,15 @@ import Haskintex_equip
 
 -- | Стоимость аренды квадрата в год
 rentCostYearPerMeter :: Int
-rentCostYearPerMeter = 10500
+rentCostYearPerMeter = round (fromIntegral (5000 * 12) / fromIntegral rentArea)
 
 -- | Количество квадратных метров
 rentArea :: Int
-rentArea = 10
+rentArea = 35
 
 -- | Затраты на аренду помещения на этапе разработки
 rentCost :: Int
-rentCost = ceiling (fromIntegral (workDeadline * rentArea * rentCostYearPerMeter) / 12)
+rentCost = round (fromIntegral (workDeadline * rentArea * rentCostYearPerMeter) / 12)
 
 \end{writehaskell}
 
@@ -27,7 +27,7 @@ rentCost = ceiling (fromIntegral (workDeadline * rentArea * rentCostYearPerMeter
 
 В соответствии с санитарными нормами расстояние между рабочими столами с видеомониторами должно быть не менее 2 м., а между боковыми поверхностями видеомониторов - не менее 1,2 м.. Площадь на одно рабочее место с терминалом или ПК должна составлять не менее 6 кв.м., а объем - не менее 20 куб.м. Расположение рабочих мест в подвальных помещениях не допускается. Помещения должны быть оборудованы системами отопления, кондиционирования воздуха или эффективной приточно-вытяжной вентиляцией. 
 
-Стоимость годовой аренды помещений в районе ст. м. Бауманская по данным сайта~\cite{RentCost} колеблется около 10000-20000 руб*год/кв.м. Достаточно хороший офис по адресу Ольховская ул., 14С1 сдается за сумму \hatex{showr rentCostYearPerMeter} руб*год/кв.м. Площадь комнаты равна \hatex{showr rentArea} кв. м. Затраты на аренду помещения на этапе разработки вычисляются по формуле~\ref{equation:rentCost}.
+Стоимость годовой аренды помещений в районе ст. м. Бауманская по данным сайта~\cite{RentCost} колеблется около 10000-20000 руб*год/кв.м. Однако на сегодняшний день имеется альтернатива дорогому офису -- коворкинг центры. Данные центры предоставляют рабочие помещения вместе с мебелью, доступом в Интернет и базовым питанием. Среди коворкинг центров был выбран <<Циферблат>>~\cite{Clockface}. Цена за кавадратный метр в год составляет \hatex{showr rentCostYearPerMeter} руб. Площадь комнаты равна \hatex{showr rentArea} кв. м. Затраты на аренду помещения на этапе разработки вычисляются по формуле~\ref{equation:rentCost}.
 
 \begin{equation}
 \label{equation:rentCost}
@@ -41,4 +41,4 @@ C_\text{ОРГ} = \frac{C_\text{КВМ}}{12} \cdot S \cdot T_{AP} =
 \item       $T_{AP}$ -- срок аренды в месяцах.
 \end{ESKDexplanation}
 
-В результате получаем затраты на аренду офиса площадью \hatex{showr rentArea} кв. м. на Ольховская улице составит $C_\text{ОРГ} = \hatex{showr rentCost} \, \text{руб}$.
+В результате получаем затраты на аренду коворкинга площадью \hatex{showr rentArea} кв. м. на Тверской улице составит $C_\text{ОРГ} = \hatex{showr rentCost} \, \text{руб}$.

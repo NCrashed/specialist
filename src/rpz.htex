@@ -73,6 +73,10 @@
 \include{orgecon/others}
 
 %===========================================================================
+% ОБЖ и Экология
+\include{obzeco/analysis}
+
+%===========================================================================
 \clearpage
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу

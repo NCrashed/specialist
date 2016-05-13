@@ -14,7 +14,7 @@ ammortTime = 25
 
 -- | Стоимость компьютера
 machineCost :: Int 
-machineCost = 60000
+machineCost = 45000
 
 -- | Затраты на оборудование
 equipCost :: Int

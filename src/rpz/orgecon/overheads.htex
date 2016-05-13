@@ -16,14 +16,14 @@ overheadFactor = 0.2
 
 -- | Накладные расходы
 overheadCosts :: Int
-overheadCosts = ceiling (overheadFactor * fromIntegral programmerExpectedSalary)
+overheadCosts = round (overheadFactor * fromIntegral programmerExpectedSalary)
 
 -- | Траты на разработку суммарные
 totalCosts :: Int
 totalCosts = costsSalary + equipCost + rentCost + overheadCosts
 
 ceilingPart :: Int -> Int -> Int 
-ceilingPart a b = ceiling (100 * fromIntegral a / fromIntegral b)
+ceilingPart a b = round (100 * fromIntegral a / fromIntegral b)
 
 -- | Траты в процентах от суммарных
 costsSalaryPart, equipCostPart, rentCostPart, overheadCostsPart :: Int

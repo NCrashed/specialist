@@ -50,7 +50,7 @@ K = C_\text{ЗАРП} + C_\text{ОБ} + C_\text{ОРГ} + C_\text{НАКЛ} = \h
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
-\pie{\hatex{showf costsSalaryPart}/$C_\text{ЗАРП}$, \hatex{showf equipCostPart}/$C_\text{ОБ}$, \hatex{showf rentCostPart}/$C_\text{ОРГ}$, \hatex{showf overheadCostsPart}/$C_\text{НАКЛ}$}
+\pie[square]{\hatex{showf costsSalaryPart}/$C_\text{ЗАРП}$, \hatex{showf equipCostPart}/$C_\text{ОБ}$, \hatex{showf rentCostPart}/$C_\text{ОРГ}$, \hatex{showf overheadCostsPart}/$C_\text{НАКЛ}$}
 \end{tikzpicture}
 \caption{Структура затрат}
 \label{figure:totalCosts}

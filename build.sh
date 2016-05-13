@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 mkdir -p $1/build/orgecon && cd $1/build/orgecon
 cp $1/src/Common.hs $1/build/orgecon
+cp $1/src/pgf-pie.sty $1/build
 $1/compile.sh $1/src/rpz/orgecon/salary
 $1/compile.sh $1/src/rpz/orgecon/costs
 $1/compile.sh $1/src/rpz/orgecon/stages

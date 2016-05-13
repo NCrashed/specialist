@@ -10,6 +10,51 @@ import Haskintex_salary
 import Haskintex_equip
 import Haskintex_workplace
 
+-- | Часть зарплаты на накладные расходы
+overheadFactor :: Float
+overheadFactor = 0.2
+
+-- | Накладные расходы
+overheadCosts :: Int
+overheadCosts = ceiling (overheadFactor * fromIntegral programmerExpectedSalary)
+
+-- | Траты на разработку суммарные
+totalCosts :: Int
+totalCosts = costsSalary + equipCost + rentCost + overheadCosts
+
+ceilingPart :: Int -> Int -> Int 
+ceilingPart a b = ceiling (100 * fromIntegral a / fromIntegral b)
+
+-- | Траты в процентах от суммарных
+costsSalaryPart, equipCostPart, rentCostPart, overheadCostsPart :: Int
+costsSalaryPart = ceilingPart costsSalary totalCosts
+equipCostPart = ceilingPart equipCost totalCosts
+rentCostPart = ceilingPart rentCost totalCosts
+overheadCostsPart = ceilingPart overheadCosts totalCosts
+
 \end{writehaskell}
 
 \subsection{Затраты на накладные расходы}
+
+Накладные расходы непосредственно связаны с организационно-техническим обслуживанием помещений: электроснабжением, работой административного персонала и включают в себя командировочные расходы и т.д. Накладные расходы вычисляют в расчете 60\%-100\% от расходов на основную заработную плату. В данном проекте они планируются в размере $\hatex{showf (100 * overheadFactor)}\%$ и составят $C_\text{НАКЛ} = \hatex{showr overheadCosts} \, \text{руб}$.
+
+Таким образом, суммарные затраты на разработку программы вычисляются по формуле~\ref{equation:totalCosts}.
+
+\begin{equation}
+\label{equation:totalCosts}
+K = C_\text{ЗАРП} + C_\text{ОБ} + C_\text{ОРГ} + C_\text{НАКЛ} = \hatex{showr costsSalary} + \hatex{showr equipCost} + \hatex{showr rentCost} + \hatex{showr overheadCosts} = \hatex{showr totalCosts} \, \text{руб}
+\end{equation}
+
+Структура затрат на разработку проиллюстрирована на рисунке~\ref{figure:totalCosts}.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\pie{\hatex{showr costsSalaryPart}/$C_\text{ЗАРП}$, \hatex{showr equipCostPart}/$C_\text{ОБ}$, \hatex{showr rentCostPart}/$C_\text{ОРГ}$, \hatex{showr overheadCostsPart}/$C_\text{НАКЛ}$}
+\end{tikzpicture}
+\caption{Структура затрат}
+\label{figure:totalCosts}
+\end{figure}
+
+
+

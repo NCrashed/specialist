@@ -4,13 +4,7 @@
 \begin{writehaskell}
 import Common
 import Haskintex_stages
-\end{writehaskell}
 
-\subsection{Расчет трудоемкости проекта}
-
-Определим вероятные трудозатраты на выполнение данного проекта. Определим их с помощью экспертных оценок. Результат экспертных оценок представлен в таблице~\ref{table:org_experts}.
-
-\begin{writehaskell}
 -- | Массив оценок экспертов
 experts :: [Int]
 experts = [201, 141, 193, 180]
@@ -24,17 +18,7 @@ expertsTabular = tabular (Just Center) [CenterColumn, VerticalLine, CenterColumn
     in ("Эксперт" & "Количество часов") <> lnbk <> hline
        <> mconcat (mkrow `fmap` pairs)
   )
-\end{writehaskell}
 
-\begin{table}[h!]
-\centering
-\caption{Результат экспертных оценок}
-\label{table:org_experts}
-\hatex{expertsTabular}
-\end{table}
-
-Тогда ожидаемая продолжительность определяется по формуле~\ref{equation:expertsExpected}.
-\begin{writehaskell}
 -- | Длительность рабочего дня
 workDay :: Int
 workDay = 8
@@ -45,14 +29,7 @@ expertsMin = minimum experts
 expertsMax = maximum experts
 expertsExpected = round (fromIntegral (3 * expertsMin + 2 * expertsMax) / 5)
 expertsExpectedDays = ceiling (fromIntegral expertsExpected / fromIntegral workDay)
-\end{writehaskell}
-\begin{equation}
-\label{equation:expertsExpected}
-t_{\text{ож}} = \frac{3 T_{min} + 2 T_{max} }{5} = \frac{3 \cdot \hatex{showr expertsMin} + 2 \cdot \hatex{showr expertsMax} }{5} = \hatex{showr expertsExpected} \, \text{часов}
-\end{equation}
 
-Затраты труда на проект выражаются формулой~\ref{equation:programmingTime}.
-\begin{writehaskell}
 designCostFactor, testCostFactor, fixCostFactor, docCostFactor, testDocCostFactor, totalCostFactor :: Float
 designCostFactor = 0.2
 testCostFactor = 0.15
@@ -70,6 +47,25 @@ docTime = round (docCostFactor * fromIntegral programmingTime)
 testDocTime = testTime + fixTime + docTime
 
 \end{writehaskell}
+
+\subsection{Расчет трудоемкости проекта}
+
+Определим вероятные трудозатраты на выполнение данного проекта. Определим их с помощью экспертных оценок. Результат экспертных оценок представлен в таблице~\ref{table:org_experts}.
+
+\begin{table}[h!]
+\centering
+\caption{Результат экспертных оценок}
+\label{table:org_experts}
+\hatex{expertsTabular}
+\end{table}
+
+Тогда ожидаемая продолжительность определяется по формуле~\ref{equation:expertsExpected}.
+\begin{equation}
+\label{equation:expertsExpected}
+t_{\text{ож}} = \frac{3 T_{min} + 2 T_{max} }{5} = \frac{3 \cdot \hatex{showr expertsMin} + 2 \cdot \hatex{showr expertsMax} }{5} = \hatex{showr expertsExpected} \, \text{часов}
+\end{equation}
+
+Затраты труда на проект выражаются формулой~\ref{equation:programmingTime}.
 \begin{equation}
 \label{equation:programmingTime}
 Q_{p} = t_1 + t_2 + t_3 = t_{\text{ож}}

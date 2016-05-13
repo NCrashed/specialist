@@ -22,11 +22,11 @@ overheadCosts = round (overheadFactor * fromIntegral programmerExpectedSalary)
 totalCosts :: Int
 totalCosts = costsSalary + equipCost + rentCost + overheadCosts
 
-ceilingPart :: Int -> Int -> Int 
-ceilingPart a b = round (100 * fromIntegral a / fromIntegral b)
+ceilingPart :: Int -> Int -> Float 
+ceilingPart a b = 100 * fromIntegral a / fromIntegral b
 
 -- | Траты в процентах от суммарных
-costsSalaryPart, equipCostPart, rentCostPart, overheadCostsPart :: Int
+costsSalaryPart, equipCostPart, rentCostPart, overheadCostsPart :: Float
 costsSalaryPart = ceilingPart costsSalary totalCosts
 equipCostPart = ceilingPart equipCost totalCosts
 rentCostPart = ceilingPart rentCost totalCosts
@@ -36,7 +36,7 @@ overheadCostsPart = ceilingPart overheadCosts totalCosts
 
 \subsection{Затраты на накладные расходы}
 
-Накладные расходы непосредственно связаны с организационно-техническим обслуживанием помещений: электроснабжением, работой административного персонала и включают в себя командировочные расходы и т.д. Накладные расходы вычисляют в расчете 60\%-100\% от расходов на основную заработную плату. В данном проекте они планируются в размере $\hatex{showf (100 * overheadFactor)}\%$ и составят $C_\text{НАКЛ} = \hatex{showr overheadCosts} \, \text{руб}$.
+Накладные расходы непосредственно связаны с организационно-техническим обслуживанием помещений: электроснабжением, работой административного персонала и включают в себя командировочные расходы и т.д. Накладные расходы вычисляют в расчете 20\%-100\% от расходов на основную заработную плату. В данном проекте они планируются в размере $\hatex{showf (100 * overheadFactor)}\%$ и составят $C_\text{НАКЛ} = \hatex{showr overheadCosts} \, \text{руб}$.
 
 Таким образом, суммарные затраты на разработку программы вычисляются по формуле~\ref{equation:totalCosts}.
 
@@ -50,7 +50,7 @@ K = C_\text{ЗАРП} + C_\text{ОБ} + C_\text{ОРГ} + C_\text{НАКЛ} = \h
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
-\pie{\hatex{showr costsSalaryPart}/$C_\text{ЗАРП}$, \hatex{showr equipCostPart}/$C_\text{ОБ}$, \hatex{showr rentCostPart}/$C_\text{ОРГ}$, \hatex{showr overheadCostsPart}/$C_\text{НАКЛ}$}
+\pie{\hatex{showf costsSalaryPart}/$C_\text{ЗАРП}$, \hatex{showf equipCostPart}/$C_\text{ОБ}$, \hatex{showf rentCostPart}/$C_\text{ОРГ}$, \hatex{showf overheadCostsPart}/$C_\text{НАКЛ}$}
 \end{tikzpicture}
 \caption{Структура затрат}
 \label{figure:totalCosts}

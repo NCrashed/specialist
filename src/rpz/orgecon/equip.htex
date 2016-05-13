@@ -18,7 +18,7 @@ machineCost = 45000
 
 -- | Затраты на оборудование
 equipCost :: Int
-equipCost = ceiling ((fromIntegral workDeadline / fromIntegral ammortTime) * fromIntegral machineCost)
+equipCost = round ((fromIntegral workDeadline / fromIntegral ammortTime) * fromIntegral machineCost)
 \end{writehaskell}
 
 \subsection{Затраты на обеспечение необходимым оборудованием}

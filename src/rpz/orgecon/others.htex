@@ -11,10 +11,66 @@ import Haskintex_equip
 import Haskintex_workplace
 import Haskintex_overheads
 
+-- | Плановые отчисления
+planedFees :: Int
+planedFees = 0
+
+-- | Вообще самая суммарная стоимость
+costs :: Int
+costs = totalCosts + planedFees
+
 \end{writehaskell}
 
 \subsection{Плановые отчисления}
+Плановые отчисления отсутствуют. 
+
+\begin{equation}
+\label{equation:costs}
+C_\text{ПО} = \hatex{showr planedFees} \, \text{руб.}
+\end{equation}
+
 \subsection{Стоимость программного продукта}
+Стоимость программного продукта определяется суммированием величин сметы затрат и плановыми отчислениями:
+
+\begin{equation}
+\label{equation:costs}
+C_\text{ПП} = K + C_\text{ПО} = \hatex{showr totalCosts} + \hatex{showr planedFees} = \hatex{showr costs} \, \text{руб.}
+\end{equation}
+
 \subsection{Определение затрат на внедрение системы}
+Затраты на внедрение системы включают только стоимость разработки в размере $\hatex{showr totalCosts} \, \text{руб}$.
+
 \subsection{Расчет срока окупаемости}
+
+Проект является некоммерческим. Заказчик согласен со сметой.
+
 \subsection{Выводы}
+
+Сводные данные по затратам на систему приведены в таблице~\ref{table:costs}.
+
+
+\begin{table}[h!]
+\centering
+\caption{Затраты на разработку и эксплуатацию АИС}
+\label{table:costs}
+\begin{tabular}{C{7cm}|C{4cm}}
+\multicolumn{2}{C{15cm}}{\textbf{Затраты на разработу, руб}} \\ \hline\hline
+
+Затраты на выплату заработной платы & \hatex{showr costsSalary} \\ \hline
+Затраты на обеспечение необходимым оборудованием & \hatex{showr equipCost} \\ \hline
+Затраты на организацию рабочих мест & \hatex{showr rentCost} \\ \hline
+Затраты на накладные расходы & \hatex{showr overheadCosts} \\ \hline
+Общая сумма затрат на разработку проекта & \hatex{showr totalCosts} \\ \hline
+
+\multicolumn{2}{C{15cm}}{\textbf{Затраты на внедрение, руб}} \\ \hline\hline
+
+Смета затрат на оборудование, программное обеспечение & 0 \\ \hline
+
+Стоимость разработки  & \hatex{showr totalCosts} \\ \hline
+
+Общая сумма затрат на внедрение проекта & \hatex{showr costs} \\ \hline
+
+\end{tabular}
+\end{table}
+
+Затраты труда на выполнение проекта $\hatex{showr expertsExpectedDays}$ человеко-дней или $ \hatex{showr expertsExpected}$ человеко-часов. Потребуется $\hatex{showr workers}$ исполнителей. Денежные затраты на разработку ПО составляют $\hatex{showr totalCosts}$ рублей. Основной статьей расхода являются расходы на заработную плату. Стоимость продукта оценивается в $\hatex{showr costs}$ рублей.

@@ -3,6 +3,7 @@
 \end{haskellpragmas}
 \begin{writehaskell}
 import Common
+import Haskintex_workplace
 \end{writehaskell}
 
 \subsection{Нормирование вредных и опасных факторов при работе с компьютером}
@@ -436,3 +437,355 @@ III & R45 & E15 & REI45 & RE15 & REI60 & R45 \\
 
 \end{tabular}
 \end{table}
+
+\subsubsection{Обеспечение безопасной эвакуации персонала}
+
+Эвакуационные выходы обеспечивают эвакуацию людей, находящихся в помещении в экстренных случаях в течение необходимого времени. В помещениях должно быть предусмотрено два запасных выхода для эвакуации людей. Помещение оборудовано системой пожарной защиты в виде автоматических извещателей типа ДИП-1, расположенных на потолке. Также установлены адресно-аналоговые дымовые датчики Aritech серии DP 2000, предназначены для раннего обнаружения задымления на объекте. Рядом с выходом расположены два порошковых огнетушителя типа ОП-5.
+
+Как уже было отмечено ранее, помещение по пожарной опасности относится к категории В – пожароопасное (НПБ 105-03), поэтому в здании  должно быть предусмотрено устройство пожарного водопровода с расположением пожарных кранов на высоте 1,35 м от уровня пола в заметных доступных местах. В рабочих помещениях могут применятся автоматические системы пенного или газового тушения. Из первичных систем пожаротушения применяются огнетушители углекислотные и пенные огнетушители типа ОХВП-10. Углекислотные огнетушители применяют для тушения электрических установок, находящихся под напряжением до 1000 В.
+
+Для эвакуации людей из зданий высотой более 10 м и более проектируют наружные стальные лестницы, расположение площадок зависти от высоты здания. Расстояние между лестницами по периметру здания – не более 200 м. Для указания места нахождения эвакуационного выходы применяются указательные знаки.
+
+К средствам тушения пожара, предназначенных для локализации небольших загораний, относятся пожарные стволы, внутренние пожарные водопроводы, огнетушители, сухой песок, асбестовые одеяла и т.п. В зданиях пожарные краны установлены в коридорах и на входах.
+
+\subsubsection{Организация освещения рабочего места оператора ПЭВМ}
+
+Основные гигиенические требования к производственному освещению, основанные на психофизических особенностях восприятия света и его влияния на организм человека, перечислены ниже.
+
+Спектральный состав света, создаваемого искусственными источниками, должен приближаться к солнечному.
+
+Уровень освещенности должен быть достаточным и соответствовать гигиеническим нормам, учитывающим условия зрительной работы.
+
+Должна быть обеспечена равномерность и устойчивость уровня освещенности в помещении во избежание частой переадаптации и утомления зрения. 
+
+Освещение не должно создавать блесткости как самих источников света, так и других предметов в пределах рабочей зоны.
+
+Ниже перечислены требования к освещению рабочих мест пользователей ПЭВМ, предъявляемые СанПиН 2.2.2/2.4.1340-03.
+
+Искусственное освещение в помещениях для эксплуатации ПЭВМ должно осуществляться системой общего равномерного освещения. В производственных и административно-общественных помещениях, в случаях преимущественной работы с документами, следует применять системы комбинированного освещения (к общему освещению дополнительно устанавливаются светильники местного освещения, предназначенные для освещения зоны расположения документов).
+
+Освещенность на поверхности стола в зоне размещения рабочего документа должна быть 300–500 лк. Освещение не должно создавать бликов на поверхности экрана. Освещенность поверхности экрана не должна быть более 300 лк.
+
+В соответствии со СНиП 23-05-95* для заданного вида деятельности был установлен разряд зрительной работы III, подразряд «в». Соответственно для выбранного разряда и подразряда работы КЕО должен составлять 1,2\% при боковом освещении, а освещенность поверхности экрана должна быть 300 лк.
+
+Следует ограничивать прямую блесткость от источников освещения, при этом яркость светящихся поверхностей (окна, светильники и др.), находящихся в поле зрения, должна быть не более 200 кд/м2.
+
+Следует ограничивать отраженную блесткость на рабочих поверхностях (экран, стол, клавиатура и др.) за счет правильного выбора типов светильников и расположения рабочих мест по отношению к источникам естественного и искусственного освещения, при этом яркость бликов на экране ПЭВМ не должна превышать 40 кд/м2, и яркость потолка не должна превышать 200 кд/м2.
+
+Яркость светильников общего освещения в зоне углов излучения от 50 до 90 градусов с вертикалью в продольной и поперечной плоскостях должна составлять не более 200 кд/м2, защитный угол светильников должен быть не менее 40 градусов.
+
+Светильники местного освещения должны иметь не просвечивающий отражатель с защитным углом не менее 40 градусов. Следует ограничивать неравномерность распределения яркости в поле зрения операторов ПЭВМ, при этом соотношение яркости между рабочими поверхностями не должно превышать 3:1 – 5:1, а между рабочими поверхностями и поверхностями стен и оборудования – 10:1.
+
+В качестве источников света при искусственном освещении следует применять преимущественно люминесцентные лампы типа ЛБ и компактные люминесцентные лампы (КЛЛ). При устройстве отраженного освещения в производственных и административно-общественных помещениях допускается применение металлогалогенных ламп. В светильниках местного освещения допускается применение ламп накаливания, в том числе галогенных.
+
+Общее освещение при использовании люминесцентных светильников следует выполнять в виде сплошных или прерывистых линий светильников, расположенных сбоку от рабочих мест, параллельно линии зрения пользователя при рядном расположении мониторов. При периметральном расположении компьютеров линии светильников должны располагаться локализовано над рабочим столом ближе к его переднему краю, обращенному к оператору. Коэффициент запаса (КЗ) для осветительных установок общего освещения должен приниматься равным 1.4. Коэффициент пульсации не должен превышать 5\%. Для обеспечения нормируемых значений освещенности в помещениях для операторов ПЭВМ следует проводить чистку стекол оконных рам и светильников не реже двух раз в год и проводить своевременную замену перегоревших ламп.
+
+\subsubsection{Расчет искусственного освещения рабочего места оператора}
+
+Для расчета искусственного освещения при равномерном размещении светильников общего освещения и горизонтальной рабочей поверхности можно использовать метод коэффициента использования светового потока. При этом методе учитывается как световой поток источников света, так и световой поток, отраженный от стен, потолка и других поверхностей помещения. Расчет ведется по формуле~\ref{equation:lightStream}.
+
+\begin{equation}
+\label{equation:lightStream}
+\text{Ф}_\text{ОСВ} = \frac{z \cdot E_\text{н} \cdot S \cdot K_\text{З}}{\eta}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $\text{Ф}_\text{ОСВ}$ -- общий световой поток всех светильников, лм;
+\item       $z$ -- коэффициент, учитывающий отношение средней освещенности к минимальной, при освещении линиями люминесцентных светильников $z = 1.1$;
+\item       $E_\text{н}$ -- нормированная освещенность, лк;
+\item       $S$ -- площадь помещения, $\text{м}^2$;
+\item       $K_\text{З}$ -- коэффициент запаса;
+\item       $\eta$ -- коэффициент использования светового потока. 
+\end{ESKDexplanation}
+
+Коэффициент использования светового потока определяется по светотехническим таблицам. Он зависит от КПД и кривой распределения силы света светильника, коэффициентов отражения потолка, пола и стен, высоты подвеса светильника над рабочей поверхностью и конфигурации помещения, которая определяется индексом помещения:
+
+\begin{equation}
+\label{equation:room_index}
+i = \frac{a \cdot b}{h_p (a + b)}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $i$ -- индекс помещения;
+\item       $a$ -- ширина помещения;
+\item       $b$ -- длина помещения; 
+\item       $h_p$ -- высота подвеса светильника над рабочей поверхностью, м.
+\end{ESKDexplanation}
+
+Подсчитав индекс помещения, выбрав тип светильников и оценив коэффициенты отражения потолка, стен и пола, можно найти значение коэффициента использования светового потока. После этого можно подсчитать необходимый световой поток одного светильника (при лампах накаливания) или одного ряда светильников (при люминесцентных лампах). По требуемому световому потоку подбирается ближайшая стандартная лампа и определяется ее мощность.
+
+\begin{writehaskell}
+-- | Высота стола в метрах
+tableHeight :: Float
+tableHeight = 0.8
+
+-- | Расстояние от потолка до нижней части светильников
+lightOffset :: Float
+lightOffset = 0
+
+-- | Высота подвеса в метрах
+lightHeight :: Float
+lightHeight = roomHeight - tableHeight - lightOffset
+
+-- | Индекс комнаты
+roomIndex :: Float
+roomIndex = roomWidth * roomLength / (lightHeight * (roomWidth + roomLength))
+
+-- | Интегральный критерий оптимальности расположения светильников с люминесцентными лампами
+lightPosFactor :: Float
+lightPosFactor = 1.1 
+
+-- | Расстояние между светильниками
+lightsDistance :: Float
+lightsDistance = lightPosFactor * lightHeight
+
+-- | Подогнанное расстояние между светильниками
+lightsDistance' :: Float
+lightsDistance' = 3
+
+-- | Количество рядов светильников
+lightsRows :: Int
+lightsRows = 2
+
+-- | Количество светильников в ряду
+lightsRowSize :: Int 
+lightsRowSize = 2 
+
+-- | Количество светильников
+lightsCount :: Int 
+lightsCount = lightsRowSize * lightsRows
+
+-- | Коэффициент использования светого потока (по табличке)
+lightUseFactor :: Float
+lightUseFactor = 0.41
+
+-- | Коэффициент неравномерности освещения 
+lightHeteroFactor :: Float
+lightHeteroFactor = 1.1
+
+-- | Нормированная минимально-допустимая освещенность для общего освещения, лк
+lightNorms :: Int
+lightNorms = 300 
+
+-- | Площадь помещения
+roomArea :: Float
+roomArea = roomWidth * roomLength 
+
+-- | Коэффициент запаса
+safetyFactor :: Float 
+safetyFactor = 1.4
+
+-- | Световой поток источников света
+lightStream :: Int
+lightStream = round ((lightHeteroFactor * fromIntegral lightNorms * roomArea * safetyFactor) / lightUseFactor)
+
+-- | Световой поток светильника
+perLightStream :: Int
+perLightStream = round (fromIntegral lightStream / fromIntegral lightsCount)
+
+-- | Количество ламп в светильнике
+lampsCount :: Int
+lampsCount = 4
+
+-- | Световой поток лампы (теория)
+perLampStream :: Int 
+perLampStream = round (fromIntegral perLightStream / fromIntegral lampsCount)
+
+-- | Мощность лампы в Вт
+lampPower :: Int
+lampPower = 40 
+
+-- | Световой поток лампы (практика)
+lampLightStream :: Int
+lampLightStream = 2500
+
+-- | Длина лампы в мм
+lampLength :: Int
+lampLength = 1200
+
+-- | Общее количество ламп
+totalLampsCount :: Int
+totalLampsCount = lampsCount * lightsCount
+
+-- | Практическое значение светового потока ото всех ламп
+lightStream' :: Int
+lightStream' = totalLampsCount * lampLightStream
+
+-- | Практическое значение освещенности рабочей поверхности
+lightNorms' :: Int
+lightNorms' = round (lightUseFactor * fromIntegral lightStream' / (lightHeteroFactor * roomArea * safetyFactor) )
+
+lightStreamDiff :: Int 
+lightStreamDiff = abs (lightStream' - lightStream)
+
+lightStreamDiffPart :: Float
+lightStreamDiffPart = fromIntegral lightStreamDiff / fromIntegral (max lightStream' lightStream)
+
+lightNormsDiff :: Int
+lightNormsDiff = abs (lightNorms' - lightNorms)
+
+lightNormsDiffPart :: Float
+lightNormsDiffPart = fromIntegral lightNormsDiff / fromIntegral (max lightNorms' lightNorms)
+
+\end{writehaskell}
+Проведем расчет и определим тип и мощность используемых ламп для помещения со следующими параметрами:
+\begin{itemize}
+\item Ширина $a = \hatex{showr roomWidth} \, \text{м}$;
+\item Длина $b = \hatex{showr roomLength} \, \text{м}$;
+\item Высота потолков $h = \hatex{showr roomHeight} \, \text{м}$;
+\item Расстояние от потолка до нижней части светильников $h_\text{св} = \hatex{showr lightOffset}\, \text{м}$ ;
+\item Высота подвеса $h_p = h - h_c - h_\text{св} = \hatex{showf lightHeight} \, \text{м}$
+\end{itemize}
+
+\paragraph{Этапы расчёта}
+\begin{enumerate}
+\item Вычислим индекс помещения по формуле~\ref{equation:room_index}:
+\begin{equation}
+i = \frac{a \cdot b}{h_p (a + b)} = \frac{\hatex{showr roomWidth} \cdot \hatex{showr roomLength}}{\hatex{showf lightHeight} \cdot (\hatex{showr roomWidth} + \hatex{showr roomLength})} = \hatex{showf roomIndex}
+\end{equation}
+
+\item Расстояние между светильниками L определяется как:
+\begin{equation}
+\label{equation:lightsDistance}
+L = \lambda \cdot h_p = \hatex{showf lightPosFactor} \cdot \hatex{showf lightHeight} = \hatex{showf lightsDistance} \, \text{м}
+\end{equation}
+\begin{ESKDexplanation}
+\item[где ] $\lambda$ -- интегральный критерий оптимальности расположения светильников с люминесцентными лампами;
+\end{ESKDexplanation}
+
+В соответствии с размерами нашего помещения примем:
+\begin{equation}
+\label{equation:lightsDistance'}
+L = \hatex{showf lightsDistance'} \, \text{м}}
+\end{equation}
+
+Таким образом, будет установлено \hatex{showr lightsRows} ряда светильников по \hatex{showr lightsRowSize} светильника в ряду. Тогда число светильников N:
+\begin{equation}
+\label{equation:lightsCount}
+N = \hatex{showr lightsRows} \cdot \hatex{showr lightsRowSize} = \hatex{showr lightsCount} \, \text{шт.}
+\end{equation}
+
+\item Определим коэффициент использования светового потока по таблицам, приводимым в СНиП 23-05-95* (таблица~\ref{table:lightUseFactor}).
+
+\begin{table}[h!]
+\centering
+\caption{Коэффициент использования светового потока}
+\label{table:lightUseFactor}
+\begin{tabular}{L{7cm}|C{3cm}|C{3cm}|C{3cm}}
+\multicolumn{1}{C{7cm}|}{Светильник} & 
+\multicolumn{3}{C{9cm} }{«Универсаль» без затенителя} \\
+\hline
+
+Коэффициент отражения потолка, $p_\text{п}$, \% & 30 & 50 & 70 \\ \hline
+Коэффициент отражения стен, $p_\text{п}$, \% & 10 & 30 & 50 \\ \hline
+
+\multicolumn{1}{C{7cm}|}{i} & \multicolumn{3}{C{9cm} }{Коэффициент использования, $\eta*100$} \\ \hline
+\multicolumn{1}{C{7cm}|}{0.7} & 32 & 35 & 38 \\ \hline
+\multicolumn{1}{C{7cm}|}{0.8} & 35 & 38 & 41 \\ \hline
+\multicolumn{1}{C{7cm}|}{0.9} & 38 & 40 & 44 \\ 
+\end{tabular}
+\end{table}
+
+По таблице~\ref{table:lightUseFactor} определяем коэффициент светого потока:
+\begin{equation} 
+\label{equation:lightUseFactor}
+\eta = \hatex{showf lightUseFactor}
+\end{equation}
+
+\item Определим общий необходимый световой поток, воспользовавшись формулой~\ref{equation:lightStream} при условиях:
+\begin{itemize}
+\item Коэффициент неравномерности освещения для люминесцентных ламп $z = \hatex{showf lightHeteroFactor}$.
+\item Нормированная минимально-допустимая освещенность для общего освещения (в соотв. с разрядом и подразрядом работ) по таблице~\ref{table:lightNorms} равна $E_\text{н} = \hatex{showr lightNorms} \, \text{лк}$.
+\end{itemize}
+\item Площадь помещения $S = a \cdot b = \hatex{showr roomWidth} \cdot \hatex{showr roomLength} = \hatex{showr roomArea} \, \text{м}^2$.
+\item Коэффициент запаса согласно рекомендуемым в нормативах СанПиН 2.2.2/2.4.1340-03: $K_\text{З} = \hatex{showf safetyFactor}$.
+
+\begin{equation}
+\label{equation:lightStream2}
+\text{Ф}_\text{ОСВ} = \frac{z \cdot E_\text{н} \cdot S \cdot K_\text{З}}{\eta} = \frac{\hatex{showf lightHeteroFactor} \cdot \hatex{showr lightNorms} \cdot \hatex{showr roomArea} \cdot \hatex{showf safetyFactor}}{\hatex{showf lightUseFactor}} = \hatex{showr lightStream} \, \text{лм}
+\end{equation}
+
+Нормативы освещенности для видов зрительных работ приведены в таблице~\ref{table:lightNorms}.
+
+\begin{table}[h!]
+\centering
+\caption{Нормативы освещенности для видов зрительных работ}
+\label{table:lightNorms}
+\begin{tabular}{L{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}}
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Характеристика 
+зрительной работы}} & 
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Размер объекта различения, мм}} & 
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Разряд и подразряд работы, мм}} & 
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Контраст объекта с фоном}} & 
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Фон}} & 
+\multicolumn{2}{C{4cm}}{Освещенность, лк} \\
+\cline{6-7}
+
+& & & & & \multicolumn{1}{C{2cm}|}{Комбинированное освещение} & \multicolumn{1}{C{2cm}}{Общее освещение} \\
+\hline
+
+Высокой точности & 0.3 - 0.5 & III, в & Средний & Средний & 750 & 300 \\
+
+\end{tabular}
+\end{table}
+
+\item Определим световой поток, приходящийся на один светильник ($N = \hatex{showr lightsCount}$):
+
+\begin{equation}
+\label{equation:perLightStream}
+\text{Ф}_\text{СВ} = \frac{\text{Ф}_\text{ОСВ}}{N} = \frac{\hatex{showr lightStream}}{\hatex{showr lightsCount}} = \hatex{showr perLightStream} \, \text{лм}
+\end{equation}
+
+\item Определим световой поток на одну лампу ($n = \hatex{showr lampsCount}$):
+\begin{equation}
+\label{equation:perLightStream}
+\text{Ф}_\text{Л} = \frac{\text{Ф}_\text{СВ}}{n} = \frac{\hatex{showr perLightStream}}{\hatex{showr lampsCount}} = \hatex{showr perLampStream} \, \text{лм}
+\end{equation}
+
+\item Определим тип лампы по таблице~\ref{table:lightsTypes}:
+
+\begin{table}[h!]
+\centering
+\caption{Световой поток наиболее распространенных люминесцентных ламп напряжением 220 В}
+\label{table:lightsTypes}
+\begin{tabular}{L{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}}
+\multirow{2}{\hsize}{\multicolumn{1}{C{2cm}}{\small Тип лампы}} & 
+\multicolumn{6}{C{14cm}}{Световой поток, лм, при мощности, Вт} & \\ 
+\cline{2-7}
+
+& 15 & 20 & 30 & 40 & 65 & 80 \\
+\hline
+
+ЛДЦ & 500 & 820 & 1450 & 2100 & 3050 & 3560 \\ \hline
+ЛД & 540 & 920 & 1640 & 2500 & 3575 & 4070 \\ \hline
+ЛХБ & 675 & 935 & 1720 & 2600 & 3820 & 4440 \\ \hline
+ЛБ & 760 & 1180 & 2100 & 3000 & 4550 & 5220 \\ \hline
+
+\end{tabular}
+\end{table}
+
+Для значения светового потока $\text{Ф}_\text{Л} = \hatex{showr perLampStream} \, \text{лм}$ подходит следующий тип ламп:
+\begin{itemize}
+\item ЛД, \hatex{showr lampPower} Вт, \hatex{showr lampLightStream} лм, длина лампы \hatex{showr lampLength} мм;
+\end{itemize}
+
+\item Сравнение теоретических и практических результатов представлено в таблице~\ref{table:lightsCompare}.
+\end{enumerate}
+
+\begin{table}[h!]
+\centering
+\caption{Сравнение теоретических и практических результатов}
+\label{table:lightsCompare}
+\begin{tabular}{L{5cm}|C{5cm}|C{5cm}}
+&
+\multicolumn{1}{C{5cm}|}{Теоретические (расчетные) значения} & 
+\multicolumn{1}{C{5cm}}{Практические значения} \\ 
+\hline
+
+Световой поток от одной лампы & \hatex{showr perLampStream} лм & \hatex{showr lampLightStream} лм \\
+Количество ламп & \hatex{showr totalLampsCount} шт. & \hatex{showr totalLampsCount} шт. \\
+Световой поток от всех ламп & \hatex{showr lightStream} лм & \hatex{showr lightStream'} лм \\
+Общее освещение & \hatex{showr lightNorms} лк & \hatex{showr lightNorms'} лк \\
+
+\end{tabular}
+\end{table}
+
+Приведенный расчет показал, что практическое значение светового потока больше теоретического на $\hatex{showr lightStreamDiff}$ лм ($\hatex{showf (100 * lightStreamDiffPart)}$\%), общего освещения на $\hatex{showr lightNormsDiff}$ лк ($\hatex{showf (100 * lightNormsDiffPart)}$\%).

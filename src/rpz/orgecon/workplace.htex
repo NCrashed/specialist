@@ -15,7 +15,13 @@ rentCostYearPerMeter = round (fromIntegral (5000 * 12) / fromIntegral rentArea)
 
 -- | Количество квадратных метров
 rentArea :: Int
-rentArea = 35
+rentArea = round (roomWidth * roomLength)
+
+-- | Ширина, длина и высота потолков комнаты
+roomWidth, roomLength, roomHeight :: Float
+roomWidth = 7
+roomLength = 5
+roomHeight = 4.3
 
 -- | Затраты на аренду помещения на этапе разработки
 rentCost :: Int

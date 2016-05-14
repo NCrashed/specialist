@@ -789,3 +789,25 @@ N = \hatex{showr lightsRows} \cdot \hatex{showr lightsRowSize} = \hatex{showr li
 \end{table}
 
 Приведенный расчет показал, что практическое значение светового потока больше теоретического на $\hatex{showr lightStreamDiff}$ лм ($\hatex{showf (100 * lightStreamDiffPart)}$\%), общего освещения на $\hatex{showr lightNormsDiff}$ лк ($\hatex{showf (100 * lightNormsDiffPart)}$\%).
+
+\subsubsection{Вывод}
+В результате проведенных расчетов для рассматриваемого помещения определено:
+\begin{itemize}
+\item Общее количество светильников -- $\hatex{showr lightsCount}$ шт.;
+\item Количество ламп в светильнике -- $\hatex{showr lampsCount}$ шт.;
+\item Общее количество ламп -- $\hatex{showr totalLampsCount}$ шт.;
+\item Тип лампы -- ЛД;
+\item Мощность лампы -- $\hatex{showr lampPower}$ Вт;
+\item Общий световой поток искусственного освещения -- $\hatex{showr lightStream'}$ лм.
+\end{itemize}
+
+\subsubsection{Схема расположения светильников в помещении операторов ПЭВМ}
+
+Схема расположения светильников в помещении изображена на рисунке~\ref{figure:lamps}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics{obzeco/lamps}
+\caption{Схема расположения светильников в помещении операторов ПЭВМ}
+\label{figure:lamps}
+\end{figure}

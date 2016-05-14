@@ -313,22 +313,28 @@ import Common
 
 \begin{table}[h!]
 \centering
-\caption{Нормируемые показатели аэроионного состава воздуха}
+\caption{Предельно допустимые уровни звукового давления, уровни звука и эквивалентные уровни звука для основных наиболее типичных видов трудовой деятельности и рабочих мест}
 \label{table:sound}
-\begin{tabular}{L{3cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{2cm}}
-\multirow{2}{\hsize}{\multicolumn{1}{C{4cm} }{Нормируемые показатели}} & 
-\multicolumn{2}{C{6cm}|}{Концентрации аэроионов, р ($\frac{\text{ион}}{\text{см}^3}$)} & 
-\multirow{2}{\hsize}{\multicolumn{1}{C{5cm} }{Коэффициент униполярности y}} \\
-\cline{2-3}
+\begin{tabular}{L{3cm}|C{0.9cm}|C{0.8cm}|C{0.8cm}|C{0.8cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{0.9cm}|C{2cm}}
+\multirow{2}{\hsize}[2em]{\multicolumn{1}{C{3cm} }{Вид труд. деятельности, раб. место}} & 
+\multicolumn{9}{C{11.5cm}|}{Уровни звукового давления, дБ, в октавных полосах со среднегеометрическими частотами, Гц} & 
+\multirow{2}{\hsize}[3em]{\multicolumn{1}{C{2cm} }{Эквив. ур. звука (в дБА)}} \\
+\cline{2-10}
 
 &
-\multicolumn{1}{C{3cm}|}{«+» полярности} & 
-\multicolumn{1}{C{3cm}|}{«-» полярности} & 
+\multicolumn{1}{C{0.9cm}|}{31.5} & 
+\multicolumn{1}{C{0.8cm}|}{63} & 
+\multicolumn{1}{C{0.8cm}|}{125} & 
+\multicolumn{1}{C{0.8cm}|}{250} & 
+\multicolumn{1}{C{0.8cm}|}{500} & 
+\multicolumn{1}{C{1cm}|}{1000} & 
+\multicolumn{1}{C{1cm}|}{2000} & 
+\multicolumn{1}{C{1cm}|}{4000} & 
+\multicolumn{1}{C{1cm}|}{8000} & 
 &
 \hline\hline
 
-Минимально допустимые & $p^{+} \geq 400$ & $p^{-} \geq 600$ & \multirow{2}{\hsize}[-0.7em]{$0.4 \leq y \leq 1.0$} \\ \cline{1-3}
-Максимально допустимые & $p^{+} \leq 50000$ & $p^{-} \leq 50000$ & \\
+Научная деятельность. РМ в лабораториях обработки данных. & 86 & 71 & 61 & 54 & 49 & 45 & 42 & 40 & 38 & 50 \\
 
 \end{tabular}
 \end{table}

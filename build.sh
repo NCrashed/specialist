@@ -13,6 +13,7 @@ $1/compile.sh $1/src/rpz/orgecon/others
 
 mkdir -p $1/build/obzeco && cd $1/build/obzeco
 cp $1/build/orgecon/*.hs $1/build/obzeco
+cp $1/src/rpz/obzeco/*.png $1/build/obzeco
 $1/compile.sh $1/src/rpz/obzeco/analysis
 $1/compile.sh $1/src/rpz/obzeco/normalize
 $1/compile.sh $1/src/rpz/obzeco/expertise

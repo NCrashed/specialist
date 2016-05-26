@@ -51,11 +51,21 @@
 \usepackage{tikz}
 \usepackage{pgf-pie}
 
+\usepackage{totcount}
+\regtotcounter{figure}
+\regtotcounter{table}
+\newtotcounter{citenum}
+\def\oldcite{}
+\let\oldcite=\bibcite
+\def\bibcite{\stepcounter{citenum}\oldcite}
+
 %===========================================================================
 \begin{document}
 
 \clearpage
 \clearpage
+
+\include{referat}
 
 \section{Часть 1}
 \section{Часть 2}

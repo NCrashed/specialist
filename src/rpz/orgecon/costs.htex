@@ -7,7 +7,7 @@ import Haskintex_stages
 
 -- | Массив оценок экспертов
 experts :: [Int]
-experts = [201, 141, 193, 180]
+experts = [209, 143, 125, 167]
 
 -- | Табличка с эксперт-часы
 expertsTabular :: LaTeX

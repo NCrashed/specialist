@@ -10,7 +10,12 @@
     {
       "name": "Haskell + LaTeX",
       "working_dir": "${project_path}",
-      "shell_cmd": "./build.sh ${project_path}"    
+      "shell_cmd": "./build.sh ${project_path} compile.sh"    
+    },
+    {
+      "name": "Haskell + LaTeX (MEMORIZED)",
+      "working_dir": "${project_path}",
+      "shell_cmd": "./build.sh ${project_path} compile_memo.sh"    
     },
     {
       "name": "Bibtex",

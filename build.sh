@@ -1,5 +1,7 @@
 #!/usr/bin/sh
-cp $1/src/rpz/*.tex $1/build/*.tex 
+mkdir -p $1/buildz
+cp $1/src/*.tex $1/build
+cp $1/src/rpz/*.tex $1/build
 
 mkdir -p $1/build/orgecon && cd $1/build/orgecon
 cp $1/src/Common.hs $1/build/orgecon

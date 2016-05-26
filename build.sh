@@ -1,5 +1,5 @@
 #!/usr/bin/sh
-cp $1/src/rpz/referat.tex $1/build/referat.tex 
+cp $1/src/rpz/*.tex $1/build/*.tex 
 
 mkdir -p $1/build/orgecon && cd $1/build/orgecon
 cp $1/src/Common.hs $1/build/orgecon
@@ -22,10 +22,11 @@ $1/$2 $1/src/rpz/obzeco/expertise
 $1/$2 $1/src/rpz/obzeco/results
 
 cd $1/build
-$1/$2 $1/src/rpz
+#$1/compile.sh $1/src/rpz
 
 cp $1/src/utf8gost705u.bst $1/build
 cp $1/src/biblio.bib $1/build
 
+rm $1/build/rpz.pdf 
 pdflatex -synctex=1 -interaction=nonstopmode rpz.tex
 xdg-open rpz.pdf

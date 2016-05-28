@@ -3,6 +3,13 @@ mkdir -p $1/buildz
 cp $1/src/*.tex $1/build
 cp $1/src/rpz/*.tex $1/build
 
+mkdir -p $1/build/design
+mkdir -p $1/build/technology
+mkdir -p $1/build/science
+cp -r $1/src/rpz/design/* $1/build/design
+cp -r $1/src/rpz/technology/* $1/build/technology
+cp -r $1/src/rpz/science/* $1/build/science
+
 mkdir -p $1/build/orgecon && cd $1/build/orgecon
 cp $1/src/Common.hs $1/build/orgecon
 cp $1/src/pgf-pie.sty $1/build

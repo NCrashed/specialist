@@ -152,7 +152,7 @@
 Рубрика назначение (FK) & Код рубрики-назначения для документов \\
 Имя файла & Название файла-архива для экспорта документов \\
 Папка импорта & Название папки для импорта документов \\
-Папка экспорта & Название папки для экспорта документов \\
+Удалить после импорта & Необходимость удаления папки импорта после конца операции \\
 Запрос удаления (FK) & Код запроса для удаления документов \\
 Запрос экспорта (FK) & Код запроса для экспорта документов \\
 Извлечение идентификаторов & Признак необходимости записи идентификаторов при экспорте \\
@@ -340,6 +340,385 @@
 
 Проблемно-ориентированный язык Haskell Persistent автоматически генерирует скрипт на языке SQL для создания всех таблиц, отношений и ограничений в БД, а также проводит миграции данных между разными версиями даталогической модели данных при спиральной разработке приложения.
 
+\lstset{caption={Даталогическая модель данных на языке Haskell Persistent},label=PersistentModel}
+\lstinputlisting{design/model.persist}
 
+\clearpage
+Далее представлена даталогическая модель, полученная из Haskell Persistent. Условные обозначения:
+\begin{itemize}
+\item РК (primary key) – первичный ключ;
+\item FK (foreign key) – внешний ключ.
+\end{itemize}
 
+\begin{table}[h!]
+\centering
+\caption{Таблица Document}
+\label{table:tableDocument}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+title & TEXT & NOT NULL & Заголовок документа \\
+annotation & TEXT & NULL & Аннотация документа \\
+content & TEXT & NOT NULL & Тело документа \\
+timestamp & DATETIME & NOT NULL & Метка времени публикации \\
+crawlTimestamp & DATETIME & NOT NULL & Метка времени сбора \\
+url & TEXT & NOT NULL & Ссылка на первоисточник \\
+rubric & INT & FK, NULL & Рубрика документа \\
+origin & INT & FK, NULL & Источник документа \\
+exported & BOOLEAN & NOT NULL & Экопртирован ли документ \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица DocumentTag}
+\label{table:tableDocumentTag}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+tag & INT & FK, NOT NULL & Метка документа \\
+doc & INT & FK, NOT NULL & Документ \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Tag}
+\label{table:tableTag}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+name & Text & NOT NULL & Имя метки \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица DocumentAttachment}
+\label{table:tableDocumentAttachment}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+document & INT & FK, NOT NULL & Документ \\
+attachment & INT & FK, NOT NULL & Приложение документа \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Attachment}
+\label{table:tableAttachment}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+name & TEXT & NOT NULL & Название приложения \\
+filename & TEXT & NOT NULL & Название файла приложения \\
+data & BYTEA & NOT NULL & Данные файла приложения \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Source}
+\label{table:tableSource}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+name & TEXT & NOT NULL & Название источника \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Rubric}
+\label{table:tableRubric}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+title & TEXT & NOT NULL & Название рубрики \\
+parent & INT & FK, NULL & Родительская рубрика \\
+hidden & BOOLEAN & NOT NULL & Признак скрытости рубрики \\
+docCount & INT & NULL & Кешированное количество документов \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Resync}
+\label{table:tableResync}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+timeStart & DATETIME & NOT NULL & Время начала операции \\
+timeEnd & DATETIME & NULL & Время конца операции \\
+progress & DOUBLE PRECISION & NOT NULL & Прогресс операции \\
+success & BOOLEAN & NULL & Признак успешного окончания операции \\
+error & TEXT & NULL & Сообщение об ошибке \\
+command & INT & NOT NULL & Тип операции \\
+proceded & INT & NOT NULL & Количество обработанных документов \\
+canceled & BOOLEAN & NULL & Признак отмененной операции \\
+sourceRubric & INT & FK, NULL & Рубрика-источник для операции  \\
+distRubric & INT & FK, NULL & Рубрика-назначение для операции  \\
+delRubric & BOOLEAN & NULL & Признак необходимости удаления рубрики-источника после операции  \\
+fileName & TEXT & NULL & Название файла для экспорта архива  \\
+importFolder & TEXT & NULL & Название папки для импорта документов \\
+importDelete & BOOLEAN & NULL & Удаление папки для импорта после операции \\
+queryDelete & INT & FK, NULL & Запрос для операции удаления документов по результатам запроса \\
+exportQuery & INT & FK, NULL & Запрос для экспорта документов по результатам запроса \\
+exportExtractIds & BOOLEAN & NULL & Необходимость сохранения идентификаторов документов при экспорте \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица SavedQuery}
+\label{table:tableSavedQuery}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+name & TEXT & NOT NULL & Название запроса \\
+fullTextQuery & Text & NULL & Основная часть запроса \\
+beginDate & DATE & NULL & Дата начала публикации \\
+endDate & DATE & NULL & Дата конца публикации \\
+beginCrawlDate & DATE & NULL & Дата начала сбора \\
+endCrawlDate & DATE & NULL & Дата конца сбора \\
+resultOffset & INT & NULL & Смещение выборки результатов \\
+resultPageSize & INT & NULL & Количество документов в выборке \\
+sortField & TEXT & NULL & Поле сортировки \\
+sortDir & BOOLEAN & NULL & Направление сортировки \\
+noRubric & BOOLEAN & NOT NULL & Поиск только без рубрики \\
+noOrigin & BOOLEAN & NOT NULL & Поиск только без источника \\
+storeRubric & INT & FK, NULL & Рубрика для хранения запроса \\
+noTags & BOOLEAN & NOT NULL & Поиск только без меток \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица SavedQueryTag}
+\label{table:tableSavedQueryTag}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+tag & INT & FK, NOT NULL & Метка запроса\\
+query & INT & FK, NULL & Запрос \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица SavedQueryWithoutTag}
+\label{table:tableSavedQueryWithoutTag}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+tag & INT & FK, NOT NULL & Метка запроса\\
+query & INT & FK, NULL & Запрос \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица SavedQueryRubric}
+\label{table:tableSavedQueryRubric}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+rubric & INT & FK, NOT NULL & Рубрика запроса\\
+query & INT & FK, NULL & Запрос \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица SavedQueryOrigin}
+\label{table:tableSavedQueryOrigin}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+origin & INT & FK, NOT NULL & Источник запроса\\
+query & INT & FK, NULL & Запрос \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Options}
+\label{table:tableOptions}
+\begin{tabular}{L{4.5cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4.5cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+showHiddenRubrics & BOOLEAN & NOT NULL & Показ скрытых рубрик\\
+showExtendedInfo & BOOLEAN & NOT NULL & Показ расширенной информации\\
+showExtendedSearch & BOOLEAN & NOT NULL & Показ расширенного поиска\\
+disableImport & BOOLEAN & NOT NULL & Отключение автоматического импорта\\
+exportFeature & BOOLEAN & NOT NULL & Показ функций экспорта\\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Predict}
+\label{table:tablePredict}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+savedId & INT & FK, NOT NULL & Запрос прогноза\\
+name & TEXT & NOT NULL & Название прогноза \\
+descr & TEXT & NOT NULL & Описание прогноза \\
+origin & DATE & NOT NULL & Начало отсчета для прогноза\\
+evolveWindow & INT & NULL & Окно эволюции прогноза\\
+evolveWindow & BOOL & NOT NULL & Признак неактивности прогноза\\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Measure}
+\label{table:tableMeasure}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+predict & INT & FK, NOT NULL & Прогноз измерения\\
+day & DATE & NOT NULL & День измерения \\
+value & INT & NOT NULL & Количество результатов запроса прогноза \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Population}
+\label{table:tablePopulation}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+predict & INT & FK, NOT NULL & Прогноз измерения\\
+generation & INT & NOT NULL & Поколение популяции \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Formula}
+\label{table:tableFormula}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+text & TEXT & NOT NULL & Тело формулы\\
+fitness & DOUBLE PRECISION & NOT NULL & Значение функции приспособленности \\
+population & INT & FK, NOT NULL & Популяция формулы \\
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Таблица Fitness}
+\label{table:tableFitness}
+\begin{tabular}{L{4cm}|L{3cm}|C{4cm}|L{5cm}}
+\multicolumn{1}{C{4cm}|}{Имя поля} & 
+\multicolumn{1}{C{3cm}|}{Тип данных} & 
+\multicolumn{1}{C{4cm}|}{Свойства поля} & 
+\multicolumn{1}{C{5cm}}{Описание} \\
+\hline\hline
+
+id & INT & PK, NOT NULL & Идентификатор \\
+population & INT & FK, NOT NULL & Популяция формулы \\
+best & DOUBLE PRECISION & NOT NULL & Лучшее значение функции приспособленности \\
+average & DOUBLE PRECISION & NOT NULL & Среднее значение функции приспособленности \\
+generation & INT & NOT NULL & Поколение измерения \\
+\end{tabular}
+\end{table}
+
+\clearpage
+\clearpage
 \paragraph{Разработка архитектуры АСОИУ} \hfill

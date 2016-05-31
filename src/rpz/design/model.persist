@@ -105,21 +105,21 @@ Predict
   disabled Bool 
 
 Measure 
-  query PredictId
+  predict PredictId
   day Day 
   value Int
-  UniqueMeasure query day 
+  UniqueMeasure predict day 
 
 Population
-  query PredictId
+  predict PredictId
   generation Int
 
 Formula 
   text Text 
-  fittness Double 
+  fitness Double 
   population PopulationId
 
-Fittness
+Fitness
   population PopulationId 
   best Double
   average Double

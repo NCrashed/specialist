@@ -1,0 +1,126 @@
+Document
+  title Text
+  annotation Text Maybe
+  content Text
+  timestamp UTCTime
+  crawlTimestamp UTCTime
+  url Text
+  rubric RubricId Maybe
+  origin SourceId Maybe
+  exported Bool
+  deriving Typeable
+
+DocumentTag
+  tag TagId
+  doc DocumentId
+
+Tag
+  name Text
+
+DocumentAttachment
+  document DocumentId 
+  attachment AttachmentId 
+  DocumentAttachmentUnique document attachment
+
+Attachment 
+  name Text 
+  filename Text 
+  data ByteString 
+
+Source 
+  name Text 
+  SourceUnique name 
+
+Rubric
+  title Text
+  parent RubricId Maybe
+  hidden Bool
+  docCount Int Maybe -- cached count of documents 
+  
+Resync
+  timeStart UTCTime
+  timeEnd UTCTime Maybe
+  progress Double
+  success Bool Maybe
+  error Text Maybe
+  command Int
+  proceded Int
+  canceled Bool Maybe
+  sourceRubric RubricId Maybe
+  distRubric RubricId Maybe
+  delRubric Bool Maybe
+  fileName Text Maybe 
+  importFolder Text Maybe 
+  importDelete Bool Maybe 
+  queryDelete SavedQueryId Maybe 
+  exportQuery SavedQueryId Maybe 
+  exportExtractIds Bool Maybe 
+  
+SavedQuery
+  name Text
+  fullTextQuery Text Maybe
+  additionalQuery Text Maybe
+  beginDate Day Maybe
+  endDate Day Maybe
+  beginCrawlDate Day Maybe 
+  endCrawlDate Day Maybe
+  resultOffset Int Maybe
+  resultPageSize Int Maybe
+  sortField SortField Maybe
+  sortDir SortDir Maybe
+  noRubric Bool
+  noOrigin Bool
+  storeRubric RubricId Maybe
+  noTags Bool
+
+SavedQueryTag
+  tag TagId
+  query SavedQueryId
+
+SavedQueryWithoutTag
+  tag TagId
+  query SavedQueryId
+
+SavedQueryRubric
+  rubric RubricId
+  query SavedQueryId
+
+SavedQueryOrigin
+  origin SourceId
+  query SavedQueryId
+
+Options
+  showHiddenRubrics Bool 
+  showExtendedInfo Bool
+  showExtendedSearch Bool
+  disableImport Bool
+  exportFeature Bool 
+
+Predict
+  savedId Int
+  name Text
+  descr Text
+  origin Day 
+  evolveWindow Int Maybe 
+  disabled Bool 
+
+Measure 
+  query PredictId
+  day Day 
+  value Int
+  UniqueMeasure query day 
+
+Population
+  query PredictId
+  generation Int
+
+Formula 
+  text Text 
+  fittness Double 
+  population PopulationId
+
+Fittness
+  population PopulationId 
+  best Double
+  average Double
+  generation Int 

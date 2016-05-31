@@ -10,6 +10,11 @@ cp -r $1/src/rpz/design/* $1/build/design
 cp -r $1/src/rpz/technology/* $1/build/technology
 cp -r $1/src/rpz/science/* $1/build/science
 
+cd $1/src/rpz/design 
+persist2er --input model.persist --output $1/build/model.er --title "Даталогическая модель" --size 1
+erd -i $1/build/model.er -o $1/build/model.eps
+erd -i $1/build/model.er -o $1/build/model.png
+
 mkdir -p $1/build/orgecon && cd $1/build/orgecon
 cp $1/src/Common.hs $1/build/orgecon
 cp $1/src/pgf-pie.sty $1/build

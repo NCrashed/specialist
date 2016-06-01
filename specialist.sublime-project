@@ -10,17 +10,22 @@
     {
       "name": "Haskell + LaTeX",
       "working_dir": "${project_path}",
-      "shell_cmd": "./build.sh ${project_path} compile.sh"    
+      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile.sh"    
     },
     {
       "name": "Haskell + LaTeX (MEMORIZED)",
       "working_dir": "${project_path}",
-      "shell_cmd": "./build.sh ${project_path} compile_memo.sh"    
+      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile_memo.sh"    
     },
     {
       "name": "Bibtex",
       "working_dir": "${project_path}/build",
       "shell_cmd": "bibtex rpz.aux"
-    }
+    },
+    {
+      "name": "Special build",
+      "working_dir": "${project_path}",
+      "shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh"    
+    },
   ]
 }

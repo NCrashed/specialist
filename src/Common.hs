@@ -16,5 +16,5 @@ showt = pack . show
 showr :: (Show a, LaTeXC l) => a -> l
 showr = raw . showt 
 
-showf :: LaTeXC l => Float -> l 
+showf :: (LaTeXC l, Floating a, PrintfArg a) => a -> l 
 showf = raw . pack . printf "%.2f"

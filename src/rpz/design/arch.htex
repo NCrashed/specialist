@@ -1,0 +1,23 @@
+\begin{haskellpragmas}
+{-# LANGUAGE OverloadedStrings #-}
+\end{haskellpragmas}
+\begin{writehaskell}
+import Common
+
+\end{writehaskell}
+
+\subsubsection{Разработка архитектуры АИС} 
+
+\paragraph{Выбор клиентского языка программирования} \hfill
+
+\paragraph{Выбор библиотеки для основы интерфейса} \hfill
+
+\paragraph{Выбор библиотеки для рубрикатора} \hfill
+
+\paragraph{Выбор библиотеки для графиков} \hfill
+
+\paragraph{Выбор серверного языка программирования} \hfill
+
+\paragraph{Выбор серверной библиотеки} \hfill
+
+\paragraph{Выбор библиотеки полнотекстового поиска} \hfill

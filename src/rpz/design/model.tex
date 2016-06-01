@@ -638,7 +638,7 @@ exportFeature & BOOLEAN & NOT NULL & Показ функций экспорта\
 \hline\hline
 
 id & INT & PK, NOT NULL & Идентификатор \\
-savedId & INT & FK, NOT NULL & Запрос прогноза\\
+queryId & INT & FK, NOT NULL & Запрос прогноза\\
 name & TEXT & NOT NULL & Название прогноза \\
 descr & TEXT & NOT NULL & Описание прогноза \\
 origin & DATE & NOT NULL & Начало отсчета для прогноза\\
@@ -721,4 +721,3 @@ generation & INT & NOT NULL & Поколение измерения \\
 
 \clearpage
 \clearpage
-\paragraph{Разработка архитектуры АСОИУ} \hfill

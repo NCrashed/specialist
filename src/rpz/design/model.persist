@@ -97,7 +97,7 @@ Options
   exportFeature Bool 
 
 Predict
-  savedId Int
+  queryId SavedQueryId
   name Text
   descr Text
   origin Day 

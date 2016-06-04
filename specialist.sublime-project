@@ -10,12 +10,12 @@
     {
       "name": "Haskell + LaTeX",
       "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile.sh"    
+      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src"    
     },
     {
       "name": "Haskell + LaTeX (MEMORIZED)",
       "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile_memo.sh"    
+      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile_memo.sh /home/ncrashed/dev/volcvh/ips/src"    
     },
     {
       "name": "Bibtex",
@@ -25,7 +25,7 @@
     {
       "name": "Special build",
       "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh"    
+      "shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src"    
     },
   ]
 }

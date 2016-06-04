@@ -13,6 +13,13 @@ cp -r $1/src/rpz/design/* $1/build/design
 cp -r $1/src/rpz/technology/* $1/build/technology
 cp -r $1/src/rpz/science/* $1/build/science
 
+echo "Generating modules diagrams"
+echo "==========================="
+cd $1/build/technology
+
+
+echo "Generating data model diagrams"
+echo "=============================="
 cd $1/src/rpz/design 
 persist2er --input model.persist --output $1/build/model.er --title "Даталогическая модель" --size 1
 erd -i $1/build/model.er -o $1/build/model.eps

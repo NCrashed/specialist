@@ -27,5 +27,10 @@
       "working_dir": "${project_path}",
       "shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src"    
     },
+    {
+      "name": "PlantUML",
+      "working_dir": "${project_path}",
+      "shell_cmd": "java -jar ${project_path}/plantuml.jar -eps ${file} && ghostscript ${file_path}/${file_base_name}.eps"    
+    }
   ]
 }

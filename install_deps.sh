@@ -12,3 +12,5 @@ stack install
 
 cd ..
 stack install haskintex
+
+sudo yum install java ghostscript

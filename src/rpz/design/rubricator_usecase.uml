@@ -1,0 +1,44 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rect
+
+actor :Аналитик: as User0
+
+rectangle {
+  usecase (Просмотр дерева рубрик) as UC0
+  User0 -> UC0
+  
+  usecase (Создание рубрики) as UC1
+  User0 -> UC1
+
+  usecase (Редактирование рубрики) as UC2
+  User0 -> UC2
+
+  usecase (Удаление рубрики) as UC3
+  User0 -> UC3
+
+  usecase (Перемещение документов) as UC4
+  User0 -> UC4
+
+  usecase (Экспорт по рубрике) as UC5
+  User0 -> UC5
+
+  usecase (Сохранение запроса) as UC6
+  User0 -> UC6
+  
+  usecase (Редактирование запроса) as UC7
+  User0 -> UC7
+
+  usecase (Удаление запроса) as UC8
+  User0 -> UC8
+
+  usecase (Удаление по запросу) as UC9
+  User0 -> UC9
+
+  usecase (Экспорт по запросу) as UC10
+  User0 -> UC10
+}
+
+
+@enduml

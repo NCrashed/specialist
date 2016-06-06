@@ -51,6 +51,12 @@ cd $1/build
 cp $1/src/utf8gost705u.bst $1/build
 cp $1/src/biblio.bib $1/build
 
+mkdir -p $1/build/lists 
+cp -r $1/src/lists/* $1/build/lists
+
+rm $1/build/lists.pdf 
+pdflatex -synctex=1 -interaction=nonstopmode lists.tex
+
 rm $1/build/rpz.pdf 
 pdflatex -synctex=1 -interaction=nonstopmode rpz.tex
 xdg-open rpz.pdf

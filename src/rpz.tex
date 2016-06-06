@@ -68,6 +68,10 @@
 
 %\renewcommand*{\thesection}{\arabic{section}}
 
+\usepackage{pdfpages}
+\renewcommand\tabularxcolumn[1]{>{\Centering}p{#1}}
+\newcommand\abs[1]{\left|#1\right|}
+
 %===========================================================================
 \begin{document}
 
@@ -122,5 +126,9 @@
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio}     %% имя библиографической базы (bib-файла) 
+
+\newpage
+\addcontentsline{toc}{section}{Приложение А. Графическая часть}
+\includepdf[pages=-,landscape=true]{lists.pdf}
 
 \end{document}

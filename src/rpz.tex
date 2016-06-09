@@ -76,6 +76,12 @@
 \patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 
 \usepackage{amsfonts}
+
+\renewcommand\bibname{Список использованных источников}
+\renewcommand\refname{Список использованных источников}
+\AtBeginDocument{\renewcommand{\bibname}{Список использованных источников}}
+\AtBeginDocument{\renewcommand{\refname}{Список использованных источников}}
+
 %===========================================================================
 \begin{document}
 
@@ -132,8 +138,12 @@
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio}     %% имя библиографической базы (bib-файла) 
 
+%\newpage
+%\addcontentsline{toc}{section}{Приложение А. Техническое задание}
+%\includepdf[pages=-,landscape=true]{tz.pdf}
+
 \newpage
-\addcontentsline{toc}{section}{Приложение А. Графическая часть}
+\addcontentsline{toc}{section}{Приложение Б. Графическая часть}
 \includepdf[pages=-,landscape=true]{lists.pdf}
 
 \end{document}

@@ -72,6 +72,10 @@
 \renewcommand\tabularxcolumn[1]{>{\Centering}p{#1}}
 \newcommand\abs[1]{\left|#1\right|}
 
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+
+\usepackage{amsfonts}
 %===========================================================================
 \begin{document}
 
@@ -92,7 +96,7 @@
 \include{design/internal}
 \include{design/model}
 \include{design/arch}
-\include{design/uml}
+%\include{design/uml}
 
 %===========================================================================
 % Технологическая часть
@@ -122,8 +126,9 @@
 \include{obzeco/results}
 
 %===========================================================================
+\nocite{*}
 \clearpage
-\addcontentsline{toc}{chapter}{\bibname}
+\addcontentsline{toc}{section}{\bibname}
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio}     %% имя библиографической базы (bib-файла) 
 

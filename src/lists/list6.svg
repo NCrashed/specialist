@@ -20,7 +20,7 @@
    sodipodi:docname="list6.svg"><metadata
      id="metadata4142"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs4140"><mask
        maskUnits="userSpaceOnUse"
        x="0"
@@ -320,9 +320,9 @@
      inkscape:window-height="1016"
      id="namedview4138"
      showgrid="false"
-     inkscape:zoom="0.32"
-     inkscape:cx="969.10189"
-     inkscape:cy="857.97519"
+     inkscape:zoom="0.64"
+     inkscape:cx="1854.2949"
+     inkscape:cy="478.17546"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -525,11 +525,14 @@
          transform="scale(1.0000024,1.0000024)"><text
            transform="matrix(1,0,0,-1,1563.78,39.8571)"
            style="font-variant:normal;font-weight:normal;font-size:40px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text4280"><tspan
-             x="0 28.040136 52.520134 73.520134 99.080139 123.60014 145.71996 170.19995 193.75995 218.27995 244.43996"
-             y="0"
+           id="text4280"
+           x="264.479"
+           y="0"><tspan
              sodipodi:role="line"
-             id="tspan4282">Согласовано</tspan></text>
+             id="tspan4282"
+             style="text-align:end;text-anchor:end"
+             x="264.479"
+             y="0">Утвердил</tspan></text>
 </g><g
          id="g4284"
          transform="matrix(3.900216,0,0,-20.638643,1837.4893,60.453348)"><rect

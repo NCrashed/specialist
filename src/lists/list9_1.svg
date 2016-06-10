@@ -321,8 +321,8 @@
      id="namedview19607"
      showgrid="false"
      inkscape:zoom="0.4021365"
-     inkscape:cx="1294.075"
-     inkscape:cy="983.41586"
+     inkscape:cx="851.43923"
+     inkscape:cy="784.47843"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -511,11 +511,14 @@
        id="g19747"><text
          id="text19749"
          style="font-variant:normal;font-weight:normal;font-size:40px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1,0,0,-1,1563.78,39.8571)"><tspan
+         transform="matrix(1,0,0,-1,1563.78,39.8571)"
+         x="264.479"
+         y="0"><tspan
            id="tspan19751"
            sodipodi:role="line"
-           y="0"
-           x="0 28.040136 52.520134 73.520134 99.080139 123.60014 145.71996 170.19995 193.75995 218.27995 244.43996">Согласовано</tspan></text>
+           style="text-align:end;text-anchor:end"
+           x="264.479"
+           y="0">Утвердил</tspan></text>
 </g><g
        transform="matrix(3.900216,0,0,-20.638643,1837.4893,60.453348)"
        id="g19753"><rect

@@ -661,9 +661,9 @@
      inkscape:window-height="1016"
      id="namedview9432"
      showgrid="false"
-     inkscape:zoom="0.4021365"
-     inkscape:cx="1461.8959"
-     inkscape:cy="1175.599"
+     inkscape:zoom="1.1374138"
+     inkscape:cx="1873.1308"
+     inkscape:cy="75.665413"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -863,11 +863,14 @@
        id="g9572"><text
          id="text9574"
          style="font-variant:normal;font-weight:normal;font-size:40px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1,0,0,-1,1563.78,39.8571)"><tspan
+         transform="matrix(1,0,0,-1,1563.78,39.8571)"
+         x="264.479"
+         y="0"><tspan
            id="tspan9576"
            sodipodi:role="line"
-           y="0"
-           x="0 28.040136 52.520134 73.520134 99.080139 123.60014 145.71996 170.19995 193.75995 218.27995 244.43996">Согласовано</tspan></text>
+           style="text-align:end;text-anchor:end"
+           x="264.479"
+           y="0">Утвердил</tspan></text>
 </g><g
        transform="matrix(3.900216,0,0,-20.638643,1837.4893,60.453348)"
        id="g9578"><rect
@@ -1012,11 +1015,14 @@
        id="g9686"><text
          id="text9688"
          style="font-variant:normal;font-weight:normal;font-size:64px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1,0,0,-1,624.243,1568.33)"><tspan
+         transform="matrix(1,0,0,-1,624.243,1568.33)"
+         x="580.52332"
+         y="0"><tspan
            id="tspan9690"
            sodipodi:role="line"
-           y="0"
-           x="0 39.104 78.463997 116.352 158.40027 197.56827 238.46426 277.63226 311.23227 353.02414 391.04041 430.40039 465.6004 504.25641 546.0484 605.75183 654.00781 693.17584 737.5918 775.4798 816.37579 878.57507 913.77502 955.63104 990.83105 1028.1431 1067.5031 1116.0154">Технологическиемодулисистемы</tspan></text>
+           style="text-align:center;text-anchor:middle"
+           x="580.52332"
+           y="0">Модульная структура системы</tspan></text>
 </g><polygon
        style="fill:#ffffff;stroke:none"
        points="-4,4 -4,-1270 1903.45,-1270 1903.45,4 -4,4 "

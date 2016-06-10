@@ -20,7 +20,7 @@
    sodipodi:docname="list2.svg"><metadata
      id="metadata6028"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
      id="defs6026"><marker
        inkscape:stockid="Arrow1Lend"
        orient="auto"
@@ -1666,9 +1666,9 @@
      inkscape:snap-center="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.22409496"
-     inkscape:cx="373.40711"
-     inkscape:cy="1028.5122"
+     inkscape:zoom="1.2676725"
+     inkscape:cx="1845.4569"
+     inkscape:cy="318.77908"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -1882,11 +1882,14 @@
        id="g6164"><text
          id="text6166"
          style="font-variant:normal;font-weight:normal;font-size:40px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1,0,0,-1,1563.78,39.8571)"><tspan
+         transform="matrix(1,0,0,-1,1563.78,39.8571)"
+         x="264.479"
+         y="0"><tspan
            id="tspan6168"
            sodipodi:role="line"
-           y="0"
-           x="0 28.040136 52.520134 73.520134 99.080139 123.60014 145.71996 170.19995 193.75995 218.27995 244.43996">Согласовано</tspan></text>
+           style="text-align:end;text-anchor:end"
+           x="264.479"
+           y="0">Утвердил</tspan></text>
 </g><g
        transform="matrix(3.900216,0,0,-20.638643,1837.4893,60.453348)"
        id="g6170"><rect
@@ -2300,7 +2303,7 @@
            id="tspan4846"
            y="-732.20911"
            x="1102.4594"
-           sodipodi:role="line">Комманды</tspan></text>
+           sodipodi:role="line">Команды</tspan></text>
 <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
@@ -2420,7 +2423,7 @@
            id="tspan4846-5"
            y="-736.01697"
            x="1491.2144"
-           sodipodi:role="line">Комманды</tspan></text>
+           sodipodi:role="line">Команды</tspan></text>
 </g><path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker5014);marker-end:url(#marker5018);stroke-miterlimit:4;stroke-dasharray:none"
        d="m 1258.439,1215.4559 88.4645,0"

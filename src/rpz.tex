@@ -82,6 +82,12 @@
 \AtBeginDocument{\renewcommand{\bibname}{Список использованных источников}}
 \AtBeginDocument{\renewcommand{\refname}{Список использованных источников}}
 
+\usepackage{fancyhdr}
+\usepackage{atenddvi}
+\usepackage[user]{zref}
+
+\usepackage{blindtext}
+
 %===========================================================================
 \begin{document}
 
@@ -141,13 +147,17 @@
 \addcontentsline{toc}{section}{\bibname}
 \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio}     %% имя библиографической базы (bib-файла) 
+\clearpage
 
-%\newpage
-%\addcontentsline{toc}{section}{Приложение А. Техническое задание}
-%\includepdf[pages=-,landscape=true]{tz.pdf}
+\addcontentsline{toc}{section}{Приложение А. Техническое задание}
+\includepdf[pages=-]{tz.pdf}
+
+\addcontentsline{toc}{section}{Приложение Б. Описание языка формализованных запросов}
+\includepdf[pages=-]{sphinx.pdf}
 
 \newpage
-\addcontentsline{toc}{section}{Приложение Б. Графическая часть}
+\addcontentsline{toc}{section}{Приложение В. Графическая часть}
+\includepdf[pages=-]{lists_title.pdf}
 \includepdf[pages=-,landscape=true]{lists.pdf}
 
 \end{document}

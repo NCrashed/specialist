@@ -1,36 +1,39 @@
 {
+	"build_systems":
+	[
+		{
+			"name": "Haskell + LaTeX",
+			"shell_cmd": "stack exec -- ./build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src",
+			"working_dir": "${project_path}"
+		},
+		{
+			"name": "Haskell + LaTeX (MEMORIZED)",
+			"shell_cmd": "stack exec -- ./build.sh ${project_path} compile_memo.sh /home/ncrashed/dev/volcvh/ips/src",
+			"working_dir": "${project_path}"
+		},
+		{
+			"name": "Bibtex",
+			"shell_cmd": "bibtex rpz.aux",
+			"working_dir": "${project_path}/build"
+		},
+		{
+			"name": "Special build",
+			"shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src",
+			"working_dir": "${project_path}"
+		},
+		{
+			"name": "PlantUML",
+			"shell_cmd": "java -jar ${project_path}/plantuml.jar -eps ${file} && ghostscript ${file_path}/${file_base_name}.eps",
+			"working_dir": "${project_path}"
+		}
+	],
 	"folders":
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/ncrashed/dev/eskdx-0.98"
 		}
-	],
-  "build_systems":
-  [
-    {
-      "name": "Haskell + LaTeX",
-      "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src"    
-    },
-    {
-      "name": "Haskell + LaTeX (MEMORIZED)",
-      "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./build.sh ${project_path} compile_memo.sh /home/ncrashed/dev/volcvh/ips/src"    
-    },
-    {
-      "name": "Bibtex",
-      "working_dir": "${project_path}/build",
-      "shell_cmd": "bibtex rpz.aux"
-    },
-    {
-      "name": "Special build",
-      "working_dir": "${project_path}",
-      "shell_cmd": "stack exec -- ./special_build.sh ${project_path} compile.sh /home/ncrashed/dev/volcvh/ips/src"    
-    },
-    {
-      "name": "PlantUML",
-      "working_dir": "${project_path}",
-      "shell_cmd": "java -jar ${project_path}/plantuml.jar -eps ${file} && ghostscript ${file_path}/${file_base_name}.eps"    
-    }
-  ]
+	]
 }

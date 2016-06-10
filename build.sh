@@ -57,6 +57,12 @@ cp -r $1/src/lists/* $1/build/lists
 rm $1/build/lists.pdf 
 pdflatex -synctex=1 -interaction=nonstopmode lists.tex
 
+cp $1/src/*.pdf $1/build
+rm $1/build/tz.pdf 
+pdflatex -synctex=1 -interaction=nonstopmode tz.tex
+rm $1/build/sphinx.pdf 
+pdflatex -synctex=1 -interaction=nonstopmode sphinx.tex
+
 rm $1/build/rpz.pdf 
 pdflatex -synctex=1 -interaction=nonstopmode rpz.tex
 xdg-open rpz.pdf

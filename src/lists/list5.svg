@@ -326,9 +326,9 @@
      inkscape:window-height="1016"
      id="namedview12169"
      showgrid="false"
-     inkscape:zoom="1.1374138"
-     inkscape:cx="1813.537"
-     inkscape:cy="166.05125"
+     inkscape:zoom="0.5687069"
+     inkscape:cx="1433.6496"
+     inkscape:cy="1995.4716"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -691,10 +691,10 @@
            transform="matrix(1,0,0,-1,624.243,1568.33)"
            style="font-variant:normal;font-weight:normal;font-size:64px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text12425"><tspan
-             x="0 47.872002 89.727997 144.64 183.808 224.70399 263.87201 297.47198 339.26385 377.28012 416.64014 451.84012 490.49612 529.72815 588.59955 637.04755 676.21558 720.43958 759.79956 800.88776 858.92719 903.34351 942.5755 984.62323 1026.4792 1077.0392"
+             x="0 47.872002 89.727997 144.64 183.808 224.70399 263.87201 297.47198 339.26385 377.28012 416.64014 451.84012 490.49612 529.72815 588.59955 637.04755 676.21558 720.43958 759.79956 800.88776"
              y="0"
              sodipodi:role="line"
-             id="tspan12427">Инфологическаямодельданных</tspan></text>
+             id="tspan12427">Инфологическаямодель БД</tspan></text>
 </g></g><g
        id="g15744"
        transform="matrix(0.68171707,0,0,0.68171707,708.77135,441.98364)"><g
